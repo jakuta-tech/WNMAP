@@ -1,12 +1,12 @@
 # NMAP BRUTEFORCING
 
-As a pentester, we must understand internal workings of Nmap’s idle scan, so that we will craft the same thing in our own implementation. Even we can write our own code based on Python to do the same thing. We must understand the basic flow or algorithm of Nmap’s idle scan. For that, we will use packet trace options in Nmap.
+As a pentester, we must understand and know what this extremely powerful tool is capable of, it can do SO Much more then just scanning ports ;-)
 
 
 ## AFP - Brute-Force                              
 _Performs password guessing against Apple Filing Protocol (AFP)_
      
-     root@hostname: ~/ # nmap -p 548 --script afp-brute <host>
+     root@hostname: ~/ # nmap -p 548 --script afp-brute 192.168.1.12
 
      |PORT    STATE SERVICE
      |548/tcp open  afp
@@ -18,7 +18,7 @@ _Performs password guessing against Apple Filing Protocol (AFP)_
 ## AJP - Brute-Force                          
 _Performs brute force passwords auditing against the Apache JServ protocol. The Apache JServ Protocol is commonly used by web servers to communicate with back-end Java application server containers_
 
-     root@hostname: ~/ # nmap -p 8009 <ip> --script ajp-brute
+     root@hostname: ~/ # nmap -p 8009 192.168.1.12 --script ajp-brute
 
      |PORT     STATE SERVICE
      |8009/tcp open  ajp13
@@ -32,7 +32,7 @@ _Performs brute force passwords auditing against the Apache JServ protocol. The 
 
 ## Backorifice - Brute-Force                         
      
-     root@hostname: ~/ # nmap -sU --script backorifice-brute <host> --script-args backorifice-brute. 
+     root@hostname: ~/ # nmap -sU --script backorifice-brute 192.168.1.12 --script-args backorifice-brute. 
 
      |PORT       STATE  SERVICE
      |31337/udp  open   BackOrifice
@@ -46,7 +46,7 @@ _Performs brute force passwords auditing against the Apache JServ protocol. The 
 ## Cassandra - Brute-Force                     
 _Performs Brute-Force password auditing against the Cassandra database_
      
-     root@hostname: ~/ # nmap -p 9160 <ip> --script=cassandra-brute
+     root@hostname: ~/ # nmap -p 9160 192.168.1.12 --script=cassandra-brute
 
      |PORT     STATE SERVICE VERSION
      |9160/tcp open  apani1?
@@ -112,7 +112,7 @@ _CICS User ID enumeration script for the CESL/CESN Login screen_
 ## Citrix - Brute-Force-xml
 _Attempts to guess valid credentials for the Citrix PN Web Agent XML Service_ The XML service authenticates against the local Windows server or the Active Directory_
      
-     root@hostname: ~/ # nmap --script=citrix - Brute-Force-xml --script-args=userdb=<userdb>,passdb=<passdb>,ntdomain=<domain> -p 80,443,8080 <host>
+     root@hostname: ~/ # nmap --script=citrix - Brute-Force-xml --script-args=userdb=<userdb>,passdb=<passdb>,ntdomain=<domain> -p 80,443,8080 192.168.1.12
 
      |PORT     STATE SERVICE    REASON
      |8080/tcp open  http-proxy syn-ack
@@ -130,7 +130,7 @@ _Attempts to guess valid credentials for the Citrix PN Web Agent XML Service_ Th
 ## Cvs - Brute-Force
 _Performs Brute-Force password auditing against CVS pserver authentication_
      
-     root@hostname: ~/ # nmap -p 2401 --script cvs-brute <host>
+     root@hostname: ~/ # nmap -p 2401 --script cvs-brute 192.168.1.12
 
      |2401/tcp open  cvspserver syn-ack
      | cvs-brute:
@@ -145,7 +145,7 @@ _Performs Brute-Force password auditing against CVS pserver authentication_
 ## Cvs Repository - Brute-Force 
 _Attempts to guess the name of the CVS repositories hosted on the remote server_ With knowledge of the correct repository name, usernames and passwords can be guessed_
      
-     root@hostname: ~/ # nmap -p 2401 --script cvs-brute-repository <host>
+     root@hostname: ~/ # nmap -p 2401 --script cvs-brute-repository 192.168.1.12
 
      |PORT     STATE SERVICE    REASON
      |2401/tcp open  cvspserver syn-ack
@@ -161,7 +161,7 @@ _Attempts to guess the name of the CVS repositories hosted on the remote server_
 ## Deluge-RPC - Brute-Force
 _Performs Brute-Force password auditing against the DelugeRPC daemon_
      
-     root@hostname: ~/ # nmap --script deluge-rpc-brute -p 58846 <host>
+     root@hostname: ~/ # nmap --script deluge-rpc-brute -p 58846 192.168.1.12
 
      |PORT      STATE SERVICE REASON  TTL
      |58846/tcp open  unknown syn-ack 0
@@ -176,7 +176,7 @@ _Performs Brute-Force password auditing against the DelugeRPC daemon_
 ## Domcon - Brute-Force
 _Performs Brute-Force password auditing against the Lotus Domino Console_
      
-     root@hostname: ~/ # nmap --script domcon-brute -p 2050 <host>
+     root@hostname: ~/ # nmap --script domcon-brute -p 2050 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |2050/tcp open  unknown syn-ack
@@ -189,7 +189,7 @@ _Performs Brute-Force password auditing against the Lotus Domino Console_
 ## DPAP - Brute-Force
 _Performs Brute-Force password auditing against an iPhoto Library_
      
-     root@hostname: ~/ # nmap --script dpap-brute -p 8770 <host>
+     root@hostname: ~/ # nmap --script dpap-brute -p 8770 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |8770/tcp open  apple-iphoto syn-ack
@@ -203,7 +203,7 @@ _Performs Brute-Force password auditing against an iPhoto Library_
 ## DRDA - Brute-Force
 _Performs password guessing against databases sup     |PORTing the IBM DB2 protocol such as Informix, DB2 and Derby_
      
-     root@hostname: ~/ # nmap -p 50000 --script drda-brute <target>
+     root@hostname: ~/ # nmap -p 50000 --script drda-brute 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |50000/tcp open  drda
@@ -216,7 +216,7 @@ _Performs password guessing against databases sup     |PORTing the IBM DB2 proto
 ## FTP - Brute-Force
 _Performs Brute-Force password auditing against FTP servers_
      
-     root@hostname: ~/ # nmap --script ftp-brute -p 21 <host>
+     root@hostname: ~/ # nmap --script ftp-brute -p 21 192.168.1.12
 
      |PORT   STATE SERVICE
      |21/tcp open  ftp
@@ -230,7 +230,7 @@ _Performs Brute-Force password auditing against FTP servers_
 ## HTTP - Brute-Force
 _Performs Brute-Force password auditing against http basic, digest and ntlm authentication_
      
-     root@hostname: ~/ # nmap --script http-brute -p 80 <host>
+     root@hostname: ~/ # nmap --script http-brute -p 80 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |80/tcp   open  http    syn-ack
@@ -244,7 +244,7 @@ _Performs Brute-Force password auditing against http basic, digest and ntlm auth
 ## HTTP-Form - Brute-Force
 _Performs Brute-Force password auditing against http form-based authentication_
      
-     root@hostname: ~/ # nmap --script http-form-brute -p 80 <host>
+     root@hostname: ~/ # nmap --script http-form-brute -p 80 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |80/tcp   open  http    syn-ack
@@ -258,7 +258,7 @@ _Performs Brute-Force password auditing against http form-based authentication_
 ## HTTP-IIS-Short-Name - Brute-Force
 _Attempts to Brute-Force the 8_3 filenames (commonly known as short names) of files and directories in the root folder of vulnerable IIS servers_ This script is an implementation of the PoC "iis shortname scanner"_
      
-     root@hostname: ~/ # nmap -p80 --script http-iis-short-name-brute <target>
+     root@hostname: ~/ # nmap -p80 --script http-iis-short-name-brute 192.168.1.12
 
      |PORT   STATE SERVICE
      |80/tcp open  http
@@ -289,7 +289,7 @@ _Attempts to Brute-Force the 8_3 filenames (commonly known as short names) of fi
 ## HTTP-Joomla - Brute-Force
 _Performs Brute-Force password auditing against Joomla web CMS installations_
      
-     root@hostname: ~/ # nmap -sV --script http-joomla-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-joomla-brute.hostname=domain.com,http-joomla-brute.threads=3,brute.firstonly=true' <target>
+     root@hostname: ~/ # nmap -sV --script http-joomla-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-joomla-brute.hostname=domain.com,http-joomla-brute.threads=3,brute.firstonly=true' 192.168.1.12
 
 
      |PORT     STATE SERVICE REASON
@@ -305,7 +305,7 @@ _Performs Brute-Force password auditing against Joomla web CMS installations_
 ## HTTP-Proxy - Brute-Force
 _Performs Brute-Force password guessing against HTTP proxy servers_
      
-     root@hostname: ~/ # nmap --script http-proxy-brute -p 8080 <host>
+     root@hostname: ~/ # nmap --script http-proxy-brute -p 8080 192.168.1.12
 
      |PORT     STATE SERVICE
      |8080/tcp open  http-proxy
@@ -319,7 +319,7 @@ _Performs Brute-Force password guessing against HTTP proxy servers_
 ## HTTP-WordPress - Brute-Force
 _Performs Brute-Force password auditing against Wordpress CMS/blog installations_
      
-     root@hostname: ~/ # nmap -sV --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com,http-wordpress-brute.threads=3,brute.firstonly=true' <target>
+     root@hostname: ~/ # nmap -sV --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com,http-wordpress-brute.threads=3,brute.firstonly=true' 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |80/tcp   open  http    syn-ack
@@ -335,7 +335,7 @@ _Performs Brute-Force password auditing against Wordpress CMS/blog installations
 ## IAX2 - Brute-Force
 _Performs Brute-Force password auditing against the Asterisk IAX2 protocol_ Guessing fails when a large number of attempts is made due to the maxcallnumber limit (default 2048)_ In case your getting "ERROR: Too many retries, aborted ___" after a while, this is most likely what's happening_ In order to avoid this problem try: - reducing the size of your dictionary - use the brute delay option to introduce a delay between guesses - split the guessing up in chunks and wait for a while between them_   
  
-     root@hostname: ~ nmap -sU -p 4569 <ip> --script iax2-brute
+     root@hostname: ~ nmap -sU -p 4569 192.168.1.12 --script iax2-brute
 
      | PORT     STATE         SERVICE   
      |4569/udp open     |filtered unknown
@@ -351,7 +351,7 @@ _Performs Brute-Force password auditing against the Asterisk IAX2 protocol_ Gues
 ## IMAP - Brute-Force
 _Performs Brute-Force password auditing against IMAP servers using either LOGIN, PLAIN, CRAM-MD5, DIGEST-MD5 or NTLM authentication_
      
-     root@hostname: ~/ # nmap -p 143,993 --script imap-brute <host>
+     root@hostname: ~/ # nmap -p 143,993 --script imap-brute 192.168.1.12
 
      |PORT    STATE SERVICE REASON
      |143/tcp open  imap    syn-ack
@@ -368,7 +368,7 @@ _Performs Brute-Force password auditing against IMAP servers using either LOGIN,
 ## Impress-Remote-Discover
 _Tests for the presence of the LibreOffice Impress Remote server_ Checks if a PIN is valid if provided and will bruteforce the PIN if requested_
      
-     root@hostname: ~/ # nmap -p 1599 --script impress-remote-discover <host>
+     root@hostname: ~/ # nmap -p 1599 --script impress-remote-discover 192.168.1.12
 
      |PORT     STATE SERVICE        Version
      |1599/tcp open  impress-remote LibreOffice Impress remote 4.3.3.2
@@ -381,7 +381,7 @@ _Tests for the presence of the LibreOffice Impress Remote server_ Checks if a PI
 ## Informix - Brute-Force
 _Performs Brute-Force password auditing against IBM Informix Dynamic Server_
      
-     root@hostname: ~/ # nmap --script informix-brute -p 9088 <host>
+     root@hostname: ~/ # nmap --script informix-brute -p 9088 192.168.1.12
 
      |PORT     STATE SERVICE
      |9088/tcp open  unknown
@@ -403,7 +403,7 @@ Summary
 ## IPMI - Brute-Force
 _Performs Brute-Force password auditing against IPMI RPC server_
      
-     root@hostname: ~/ # nmap -sU --script ipmi-brute -p 623 <host>
+     root@hostname: ~/ # nmap -sU --script ipmi-brute -p 623 192.168.1.12
 
 
      |PORT     STATE  SERVICE REASON
@@ -417,7 +417,7 @@ _Performs Brute-Force password auditing against IPMI RPC server_
 ## IRC - Brute-Force
 _Performs Brute-Force password auditing against IRC (Internet Relay Chat) servers_
      
-     root@hostname: ~/ # nmap --script irc-brute -p 6667 <ip>
+     root@hostname: ~/ # nmap --script irc-brute -p 6667 192.168.1.12
 
      |PORT     STATE SERVICE
      |6667/tcp open  irc
@@ -433,7 +433,7 @@ _Performs Brute-Force password auditing against IRC (Internet Relay Chat) server
 ## IRC-sasl - Brute-Force
 _Performs Brute-Force password auditing against IRC (Internet Relay Chat) servers sup     |PORTing SASL authentication_
      
-     root@hostname: ~/ # nmap --script irc-sasl-brute -p 6667 <ip>
+     root@hostname: ~/ # nmap --script irc-sasl-brute -p 6667 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |6667/tcp open  irc     syn-ack
@@ -447,7 +447,7 @@ _Performs Brute-Force password auditing against IRC (Internet Relay Chat) server
 ## ISCSI - Brute-Force
 _Performs Brute-Force password auditing against iSCSI targets_
      
-     root@hostname: ~/ # nmap -sV --script=iscsi-brute <target>
+     root@hostname: ~/ # nmap -sV --script=iscsi-brute 192.168.1.12
 
      |PORT     STATE SERVICE
      |3260/tcp open  iscsi   syn-ack
@@ -463,7 +463,7 @@ _Performs Brute-Force password auditing against iSCSI targets_
 ## LDAP - Brute-Force
 _Attempts to brute-force LDAP authentication_ By default it uses the built-in username and password lists_ In order to use your own lists use the userdb and passdb script arguments_
      
-     root@hostname: ~/ # nmap -p 389 --script ldap-brute --script-args ldap.base='"cn=users,dc=cqure,dc=net"' <host>
+     root@hostname: ~/ # nmap -p 389 --script ldap-brute --script-args ldap.base='"cn=users,dc=cqure,dc=net"' 192.168.1.12
 
      |389/tcp open  ldap
      | ldap-brute:
@@ -518,7 +518,7 @@ _Performs Brute-Force username and password auditing against Metasploit msgrpc i
 ## Metasploit-XMLRPC - Brute-Force
 _Performs Brute-Force password auditing against a Metasploit RPC server using the XMLRPC protocol_
      
-     root@hostname: ~/ # nmap --script metasploit-msgrpc-brute -p 55553 <host>
+     root@hostname: ~/ # nmap --script metasploit-msgrpc-brute -p 55553 192.168.1.12
 
      |PORT      STATE SERVICE REASON
      |55553/tcp open  unknown syn-ack
@@ -533,7 +533,7 @@ _Performs Brute-Force password auditing against a Metasploit RPC server using th
 ## Mikrotik-RouterOS - Brute-Force
 _Performs Brute-Force password auditing against Mikrotik RouterOS devices with the API RouterOS interface enabled_
      
-     root@hostname: ~/ # nmap -p8728 --script mikrotik-routeros-brute <target>
+     root@hostname: ~/ # nmap -p8728 --script mikrotik-routeros-brute 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |8728/tcp open  unknown syn-ack
@@ -549,7 +549,7 @@ _Performs Brute-Force password auditing against Mikrotik RouterOS devices with t
 ## MMouse - Brute-Force
 _Performs Brute-Force password auditing against the RPA Tech Mobile Mouse servers_
      
-     root@hostname: ~/ # nmap --script mmouse-brute -p 51010 <host>
+     root@hostname: ~/ # nmap --script mmouse-brute -p 51010 192.168.1.12
 
      |PORT      STATE SERVICE
      |51010/tcp open  unknown
@@ -565,7 +565,7 @@ _Performs Brute-Force password auditing against the RPA Tech Mobile Mouse server
 ## MongoDB - Brute-Force
 _ Performs Brute-Force password auditing against the MongoDB database_
      
-     root@hostname: ~/ # nmap -p 27017 <ip> --script mongodb-brute
+     root@hostname: ~/ # nmap -p 27017 192.168.1.12 --script mongodb-brute
 
      |PORT      STATE SERVICE
      |27017/tcp open  mongodb
@@ -582,8 +582,8 @@ _ Performs Brute-Force password auditing against the MongoDB database_
 ## MS-SQL - Brute-Force
 _Performs password guessing against Microsoft SQL Server (ms-sql)_ Works best in conjunction with the broadcast-ms-sql-discover script_
      
-     root@hostname: ~/ # nmap -p 445 --script ms-sql-brute --script-args mssql.instance-all,userdb=customuser.txt,passdb=custompass.txt <host>
-     root@hostname: ~/ # nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt <host>
+     root@hostname: ~/ # nmap -p 445 --script ms-sql-brute --script-args mssql.instance-all,userdb=customuser.txt,passdb=custompass.txt 192.168.1.12
+     root@hostname: ~/ # nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      | ms-sql-brute:
@@ -602,7 +602,7 @@ _Performs password guessing against Microsoft SQL Server (ms-sql)_ Works best in
 ## MySQL - Brute-Force                         
 _Performs password guessing against MySQL_
      
-     root@hostname: ~/ # nmap --script=mysql-brute <target>
+     root@hostname: ~/ # nmap --script=mysql-brute 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |3306/tcp open  mysql
@@ -615,7 +615,7 @@ _Performs password guessing against MySQL_
 ## MySQL-enum                              
 _Performs valid-user enumeration against MySQL server using a bug discovered and published by Kingcope (http://seclists_org/fulldisclosure/2012/Dec/9)_
      
-     root@hostname: ~/ # nmap --script=mysql-enum <target>
+     root@hostname: ~/ # nmap --script=mysql-enum 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |3306/tcp open  mysql   syn-ack
@@ -651,7 +651,7 @@ Although, it's very slow running under a single thread it does work as intended
 ## Nessus-XMLRPC - Brute-Force                   
 _Performs Brute-Force password auditing against a Nessus vulnerability scanning daemon using the XMLRPC protocol_
      
-     root@hostname: ~/ # nmap -sV --script=nessus-xmlrpc-brute <target>
+     root@hostname: ~/ # nmap -sV --script=nessus-xmlrpc-brute 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |8834/tcp open  unknown syn-ack
@@ -666,7 +666,7 @@ _Performs Brute-Force password auditing against a Nessus vulnerability scanning 
 ## Netbus - Brute-Force                             
 _Performs Brute-Force password auditing against the Netbus backdoor ("remote administration") service_
      
-     root@hostname: ~/ # nmap -p 12345 --script netbus-brute <target>
+     root@hostname: ~/ # nmap -p 12345 --script netbus-brute 192.168.1.12
 
      |12345/tcp open  netbus
      |_netbus-brute: password123
@@ -677,7 +677,7 @@ _Performs Brute-Force password auditing against the Netbus backdoor ("remote adm
 ## Nexpose - Brute-Force                            
 _Performs Brute-Force password auditing against a Nexpose vulnerability scanner using the API 1_1_
      
-     root@hostname: ~/ # nmap --script nexpose-brute -p 3780 <ip>
+     root@hostname: ~/ # nmap --script nexpose-brute -p 3780 192.168.1.12
 
      |PORT     STATE SERVICE     REASON  VERSION
      |3780/tcp open  ssl/nexpose syn-ack NeXpose NSC 0.6.4
@@ -693,8 +693,8 @@ _Performs Brute-Force password auditing against a Nexpose vulnerability scanner 
 ## NJE-Node - Brute-Force                           
 _z/OS JES Network Job Entry (NJE) target node name Brute-Force_
      
-     root@hostname: ~/ # nmap -sV --script=nje-node-brute <target>
-     root@hostname: ~/ # nmap --script=nje-node-brute --script-args=hostlist=nje_names.txt -p 175 <target>
+     root@hostname: ~/ # nmap -sV --script=nje-node-brute 192.168.1.12
+     root@hostname: ~/ # nmap --script=nje-node-brute --script-args=hostlist=nje_names.txt -p 175 192.168.1.12
 
      |PORT    STATE SERVICE REASON
      |175/tcp open  nje     syn-ack
@@ -709,8 +709,8 @@ _z/OS JES Network Job Entry (NJE) target node name Brute-Force_
 ## NJE-Pass - Brute-Force                           
 _z/OS JES Network Job Entry (NJE) 'I record' password Brute-Forcer_
      
-     root@hostname: ~/ # nmap -sV --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS' <target>
-     root@hostname: ~/ # nmap --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS',sleep=5 -p 175 <target>
+     root@hostname: ~/ # nmap -sV --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS' 192.168.1.12
+     root@hostname: ~/ # nmap --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS',sleep=5 -p 175 192.168.1.12
 
      |PORT    STATE SERVICE VERSION
      |175/tcp open  nje     IBM Network Job Entry (JES)
@@ -726,7 +726,7 @@ _z/OS JES Network Job Entry (NJE) 'I record' password Brute-Forcer_
 ## Nping - Brute-Force                         
 _Performs Brute-Force password auditing against an Nping Echo service_
      
-     root@hostname: ~/ # nmap -p 9929 --script nping-brute <target>
+     root@hostname: ~/ # nmap -p 9929 --script nping-brute 192.168.1.12
 
      |9929/tcp open  nping-echo
      | nping-brute:
@@ -742,7 +742,7 @@ _Performs Brute-Force password auditing against an Nping Echo service_
 ## OMPv2 - Brute-Force                              
 _Performs Brute-Force password auditing against the OpenVAS manager using OMPv2_
      
-     root@hostname: ~/ # nmap -p 9390 --script omp2-brute <target>
+     root@hostname: ~/ # nmap -p 9390 --script omp2-brute 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |9390/tcp open  openvas syn-ack
@@ -755,7 +755,7 @@ _Performs Brute-Force password auditing against the OpenVAS manager using OMPv2_
 ## OpenVAS-OTP - Brute-Force                         
 _Performs Brute-Force password auditing against a OpenVAS vulnerability scanner daemon using the OTP 1_0 protocol_
      
-     root@hostname: ~/ # nmap -sV --script=openvas-otp-brute <target>
+     root@hostname: ~/ # nmap -sV --script=openvas-otp-brute 192.168.1.12
 
 PORT     STATE SERVICE    REASON  VERSION
      |9391/tcp open  ssl/openvas syn-ack
@@ -768,7 +768,7 @@ PORT     STATE SERVICE    REASON  VERSION
 ## Oracle - Brute-Force                             
 _Performs Brute-Force password auditing against Oracle servers_
      
-     root@hostname: ~/ # nmap --script oracle-brute -p 1521 --script-args oracle-brute.sid=ORCL <host>
+     root@hostname: ~/ # nmap --script oracle-brute -p 1521 --script-args oracle-brute.sid=ORCL 192.168.1.12
 
      |PORT     STATE  SERVICE REASON
      |1521/tcp open  oracle  syn-ack
@@ -784,7 +784,7 @@ _Performs Brute-Force password auditing against Oracle servers_
 ## Oracle - Brute-Force-stealth                  
 _Exploits the CVE-2012-3137 vulnerability, a weakness in Oracle's O5LOGIN authentication scheme_ The vulnerability exists in Oracle 11g R1/R2 and allows linking the session key to a password hash_ When initiating an authentication attempt as a valid user the server will respond with a session key and salt_ Once received the script will disconnect the connection thereby not recording the login attempt_ The session key and salt can then be used to Brute-Force the users password_
      
-     root@hostname: ~/ # nmap --script oracle-brute-stealth -p 1521 --script-args oracle-brute-stealth.sid=ORCL <host>
+     root@hostname: ~/ # nmap --script oracle-brute-stealth -p 1521 --script-args oracle-brute-stealth.sid=ORCL 192.168.1.12
 
      |PORT     STATE  SERVICE REASON
      |1521/tcp open  oracle  syn-ack
@@ -801,8 +801,8 @@ _Exploits the CVE-2012-3137 vulnerability, a weakness in Oracle's O5LOGIN authen
 ## oracle-sid - Brute-Force                     
 _Guesses Oracle instance/SID names against the TNS-listener_
      
-     root@hostname: ~/ # nmap --script=oracle-sid-brute --script-args=oraclesids=/path/to/sidfile -p 1521-1560 <host>
-     root@hostname: ~/ # nmap --script=oracle-sid-brute -p 1521-1560 <host>
+     root@hostname: ~/ # nmap --script=oracle-sid-brute --script-args=oraclesids=/path/to/sidfile -p 1521-1560 192.168.1.12
+     root@hostname: ~/ # nmap --script=oracle-sid-brute -p 1521-1560 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |1521/tcp open  oracle  syn-ack
@@ -817,7 +817,7 @@ _Guesses Oracle instance/SID names against the TNS-listener_
 ## pcAnywhere - Brute-Force                     
 _Performs Brute-Force password auditing against the pcAnywhere remote access protocol_
      
-     root@hostname: ~/ # nmap --script=pcanywhere-brute <target>
+     root@hostname: ~/ # nmap --script=pcanywhere-brute 192.168.1.12
 
      |5631/tcp open  pcanywheredata syn-ack
      | pcanywhere-brute:
@@ -832,7 +832,7 @@ _Performs Brute-Force password auditing against the pcAnywhere remote access pro
 ## PostgreSQL - Brute-Force                         
 _Performs password guessing against PostgreSQL_
      
-     root@hostname: ~/ # nmap -p 5432 --script pgsql-brute <host>
+     root@hostname: ~/ # nmap -p 5432 --script pgsql-brute 192.168.1.12
 
      |5432/tcp open  pgsql
      | pgsql-brute:
@@ -845,7 +845,7 @@ _Performs password guessing against PostgreSQL_
 ## POP3 - Brute-Force                              
 _Tries to log into a POP3 account by guessing usernames and passwords_
      
-     root@hostname: ~/ # nmap -sV --script=pop3-brute <target>
+     root@hostname: ~/ # nmap -sV --script=pop3-brute 192.168.1.12
 
      |PORT    STATE SERVICE
      |110/tcp open  pop3
@@ -863,7 +863,7 @@ _Tries to log into a POP3 account by guessing usernames and passwords_
 ## Redis - Brute-Force                         
 _Performs Brute-Force passwords auditing against a Redis key-value store_
      
-     root@hostname: ~/ # nmap -p 6379 <ip> --script redis-brute
+     root@hostname: ~/ # nmap -p 6379 192.168.1.12 --script redis-brute
 
      |PORT     STATE SERVICE
      |6379/tcp open  unknown
@@ -880,7 +880,7 @@ _Performs Brute-Force passwords auditing against a Redis key-value store_
 ## RExec - Brute-Force                         
 _Performs Brute-Force password auditing against the classic UNIX rexec (remote exec) service_
      
-     root@hostname: ~/ # nmap -p 512 --script rexec-brute <ip>
+     root@hostname: ~/ # nmap -p 512 --script rexec-brute 192.168.1.12
 
      |PORT    STATE SERVICE
      |512/tcp open  exec
@@ -894,7 +894,7 @@ _Performs Brute-Force password auditing against the classic UNIX rexec (remote e
 ## UNIX-RLogin - Brute-Force                            
 _Performs Brute-Force password auditing against the classic UNIX rlogin (remote login) service_ This script must be run in privileged mode on UNIX because it must bind to a low source      |PORT number_
      
-     root@hostname: ~/ # nmap -p 513 --script rlogin-brute <ip>
+     root@hostname: ~/ # nmap -p 513 --script rlogin-brute 192.168.1.12
 
      |PORT    STATE SERVICE
      |513/tcp open  login
@@ -911,7 +911,7 @@ _Performs Brute-Force password auditing against the classic UNIX rlogin (remote 
 ## RPcap - Brute-Force                         
 _Performs Brute-Force password auditing against the WinPcap Remote Capture Daemon (rpcap)_
      
-     root@hostname: ~/ # nmap -p 2002 <ip> --script rpcap-brute
+     root@hostname: ~/ # nmap -p 2002 192.168.1.12 --script rpcap-brute
 
      |PORT     STATE SERVICE REASON
      |2002/tcp open  globe   syn-ack
@@ -928,7 +928,7 @@ _Performs Brute-Force password auditing against the WinPcap Remote Capture Daemo
 ## Rsync - Brute-Force                         
 _Performs Brute-Force password auditing against the rsync remote file syncing protocol_
      
-     root@hostname: ~/ # nmap -p 873 --script rsync-brute --script-args 'rsync-brute.module=www' <ip>
+     root@hostname: ~/ # nmap -p 873 --script rsync-brute --script-args 'rsync-brute.module=www' 192.168.1.12
 
      |PORT    STATE SERVICE REASON
      |873/tcp open  rsync   syn-ack
@@ -946,7 +946,7 @@ _Performs Brute-Force password auditing against the rsync remote file syncing pr
 ## RTSP-Url - Brute-Force                           
 _Attempts to enumerate RTSP media URLS by testing for common paths on devices such as surveillance IP cameras_
      
-     root@hostname: ~/ # nmap --script rtsp-url-brute -p 554 <ip>
+     root@hostname: ~/ # nmap --script rtsp-url-brute -p 554 192.168.1.12
 
      |PORT    STATE SERVICE
      |554/tcp open  rtsp
@@ -971,7 +971,7 @@ _Performs Brute-Force password auditing against Session Initiation Protocol (SIP
 ## SMB - Brute-Force                               
 _Attempts to guess username/password combinations over SMB, storing discovered combinations for use in other scripts_ Every attempt will be made to get a valid list of users and to verify each username before actually using them_ When a username is discovered, besides being printed, it is also saved in the Nmap registry so other Nmap scripts can use it_ That means that if you're going to run smb - Brute-Force_nse, you should run other smb scripts you want_ This checks passwords in a case-insensitive way, determining case after a password is found, for Windows versions before Vista_
      
-     root@hostname: ~/ # nmap -sU -sS --script smb-brute.nse -p U:137,T:139 <host>
+     root@hostname: ~/ # nmap -sU -sS --script smb-brute.nse -p U:137,T:139 192.168.1.12
 
 Host script results:
      | smb-brute:
@@ -990,7 +990,7 @@ Host script results:
 ## SMTP - Brute-Force                              
 _Performs Brute-Force password auditing against SMTP servers using either LOGIN, PLAIN, CRAM-MD5, DIGEST-MD5 or NTLM authentication_
      
-     root@hostname: ~/ # nmap -p 25 --script smtp-brute <host>
+     root@hostname: ~/ # nmap -p 25 --script smtp-brute 192.168.1.12
 
      |PORT    STATE SERVICE REASON
      |25/tcp  open  stmp    syn-ack
@@ -1008,7 +1008,7 @@ _Performs Brute-Force password auditing against SMTP servers using either LOGIN,
 ## SNMP - Brute-Force                              
 _Attempts to find an SNMP community string by Brute-Force guessing_
      
-     root@hostname: ~/ # nmap --script socks-brute -p 1080 <host>
+     root@hostname: ~/ # nmap --script socks-brute -p 1080 192.168.1.12
 
      |PORT     STATE SERVICE
      |1080/tcp open  socks
@@ -1031,7 +1031,7 @@ _Performs Brute-Force password auditing against SOCKS 5 proxy servers_
 ## SSH - Brute-Force                               
 _Performs brute-force password guessing against ssh servers_
      
-     root@hostname: ~/ #   nmap -p 22 --script ssh-brute --script-args userdb=users.lst,passdb=pass.lst --script-args ssh-brute.timeout=4s <target>
+     root@hostname: ~/ #   nmap -p 22 --script ssh-brute --script-args userdb=users.lst,passdb=pass.lst --script-args ssh-brute.timeout=4s 192.168.1.12
 
      |22/ssh open  ssh
      | ssh-brute:
@@ -1043,7 +1043,7 @@ _Performs brute-force password guessing against ssh servers_
 ## SVN - Brute-Force                               
 _Performs Brute-Force password auditing against Subversion source code control servers_
      
-     root@hostname: ~/ # nmap --script svn-brute --script-args svn-brute.repo=/svn/ -p 3690 <host>
+     root@hostname: ~/ # nmap --script svn-brute --script-args svn-brute.repo=/svn/ -p 3690 192.168.1.12
 
      |PORT     STATE SERVICE REASON
      |3690/tcp open  svn     syn-ack
@@ -1064,7 +1064,7 @@ Summary
 ## Telnet - Brute-Force                             
 _Performs brute-force password auditing against telnet servers_
      
-     root@hostname: ~/ #   nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s <target>
+     root@hostname: ~/ #   nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s 192.168.1.12
 
      |23/tcp open  telnet
      | telnet-brute:
@@ -1094,7 +1094,7 @@ _TSO User ID enumerator for IBM mainframes (z/OS)_ The TSO logon panel tells you
 ## VMWare Authentication Daemon - BruteForce                            
 _Performs Brute-Force password auditing against the VMWare Authentication Daemon (vmware-authd)_
      
-     root@hostname: ~/ # nmap -p 902 <ip> --script vmauthd-brute
+     root@hostname: ~/ # nmap -p 902 192.168.1.12 --script vmauthd-brute
 
      |PORT    STATE SERVICE
      |902/tcp open  iss-realsecure
@@ -1108,7 +1108,7 @@ _Performs Brute-Force password auditing against the VMWare Authentication Daemon
 ## VNC - Brute-Force                               
 _Performs Brute-Force password auditing against VNC servers_
      
-     root@hostname: ~/ # nmap --script vnc-brute -p 5900 <host>
+     root@hostname: ~/ # nmap --script vnc-brute -p 5900 192.168.1.12
 
      |PORT     STATE  SERVICE REASON
      |5900/tcp open   vnc     syn-ack
@@ -1137,7 +1137,7 @@ _Many mainframes use VTAM screens to connect to various applications (CICS, IMS,
 ## XMPP - Brute-Force                              
 _Performs Brute-Force password auditing against XMPP (Jabber) instant messaging servers_
      
-     root@hostname: ~/ # nmap -p 5222 --script xmpp-brute <host>
+     root@hostname: ~/ # nmap -p 5222 --script xmpp-brute 192.168.1.12
 
      |PORT     STATE SERVICE
      |5222/tcp open  xmpp-client
@@ -1244,10 +1244,10 @@ nmap -p 22 open -sV 192.168.2.0/24
      root@hostname: ~/ # nmap -sT -p 80 -oG - 192.168.1.* | grep open
 
 ## Scan computers OS and open services on all network
-     root@hostname: ~/ # nmap -O 192.168.1.1/24
+     root@hostname: ~/ # nmap -O 192.168.1.12/24
 
 ## Get info about remote host ports and OS detection
-     root@hostname: ~/ # nmap -sS -P0 -sV -O <target>
+     root@hostname: ~/ # nmap -sS -P0 -sV -O 192.168.1.12
 
 ## Getting a list of active addresses in your own network.
      root@hostname: ~/ # nmap -n -sP -oG - 10.10.10.*/32 | grep ": Up" | cut -d' ' -f2
@@ -1295,7 +1295,7 @@ nmap -p 22 open -sV 192.168.2.0/24
      Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-20 19:11 -00
      ************************INTERFACES************************
      DEV  (SHORT) IP/MASK                                 TYPE     UP   MTU   MAC
-     eth0 (eth0)  192.168.1.104/24                        ethernet up   1500  11:22:33:44:55:66
+     eth0 (eth0)  192.168.1.1204/24                        ethernet up   1500  11:22:33:44:55:66
      eth0 (eth0)  fe80::88ee:75zz:qe6c:8111/64            ethernet up   1500  11:22:33:44:55:66
      eth0 (eth0)  fd91:3eea:8968:0:56ee:75ff:fe6e:8784/64 ethernet up   1500  11:22:33:44:55:66
      eth0 (eth0)  qz91:3ena::277/128                      ethernet up   1500  54:EE:75:6E:87:84
@@ -1321,27 +1321,27 @@ nmap -p 22 open -sV 192.168.2.0/24
 
 
 ## TCP Syn and UDP Scan
-     root@hostname: ~/ # nmap -sS -sU -PN 192.168.1.11
+     root@hostname: ~/ # nmap -sS -sU -PN 192.168.1.121
 
 ## TCP SYN and UDP scan for all ports (requires root)
-     root@hostname: ~/ # nmap -sS -sU -PN -p 1-65535 192.168.1.11
+     root@hostname: ~/ # nmap -sS -sU -PN -p 1-65535 192.168.1.121
 
 ## TCP Window Scan
 
-     root@hostname: ~/ # nmap –sW 192.168.1.11
+     root@hostname: ~/ # nmap –sW 192.168.1.121
 
 ## TCP Maimon Scan
-     root@hostname: ~/ # nmap –sM 192.168.1.11
+     root@hostname: ~/ # nmap –sM 192.168.1.121
 
 ## SCTP COOKIE ECHO Scan
-     root@hostname: ~/ # nmap –-sZ 192.168.1.11
+     root@hostname: ~/ # nmap –-sZ 192.168.1.121
 
 ## Attack a target with a zombie host
-     root@hostname: ~/ # nmap -sI Zombie:113 -Pn -p20-80,110-180 -r –packet-trace -v 192.168.1.11
+     root@hostname: ~/ # nmap -sI Zombie:113 -Pn -p20-80,110-180 -r –packet-trace -v 192.168.1.121
 
 ## FTP Bounce Scan
 
-     root@hostname: ~/ # nmap -T0 -b username:password@ftpserver.tld:21 victim.tld 192.168.1.11
+     root@hostname: ~/ # nmap -T0 -b username:password@ftpserver.tld:21 victim.tld 192.168.1.121
 
 ## Fragmentation
 #### Nmap will split into small small packets for bypassing firewall. This technique is very old, still it will work if there is a misconfiguration of firewall.
@@ -1352,7 +1352,7 @@ nmap -p 22 open -sV 192.168.2.0/24
      root@hostname: ~/ # nmap –D RND:10 TARGET
 
 ## Here decoys are specified by the attacker.
-     root@hostname: ~/ # nmap –D decoy1,decoy2,decoy3 192.168.1.11
+     root@hostname: ~/ # nmap –D decoy1,decoy2,decoy3 192.168.1.121
 
 ## Randomize Target Scan Order:
 #### The The –randomize-hosts option is used to randomize the scanning order of the specified targets. The –randomize-hosts option helps prevent scans of multiple targets from being detected by firewalls and intrusion detection systems.
@@ -1360,29 +1360,29 @@ nmap -p 22 open -sV 192.168.2.0/24
 
 ## Spoof MAC address:
 #### Specifically the –spoof-mac option gives you the ability to choose a MAC address from a specific vendor, 
-     root@hostname: ~/ # nmap -sT -PN –spoof-mac aa:bb:cc:dd:ee:ff192.168.1.11
+     root@hostname: ~/ # nmap -sT -PN –spoof-mac aa:bb:cc:dd:ee:ff192.168.1.121
 
 ## SSL Post-processor Scan
-     root@hostname: ~/ # nmap -Pn -sSV -T4 –F 192.168.1.11
+     root@hostname: ~/ # nmap -Pn -sSV -T4 –F 192.168.1.121
 
 ## HTTP User Agent:
-cmd: nmap -p80 –script http-methods –script-args http.useragent=”Mozilla 5″ 192.168.1.11
+cmd: nmap -p80 –script http-methods –script-args http.useragent=”Mozilla 5″ 192.168.1.121
 
 ## HTTP pipelining
-nmap -p80 –script http-methods –script-args http.pipeline=25 192.168.1.11
+nmap -p80 –script http-methods –script-args http.pipeline=25 192.168.1.121
 
 ## HTTP-Proxy scanning with Nmap:
-nmap –script http-open-proxy -p8080 <target>
+nmap –script http-open-proxy -p8080 192.168.1.12
 
 ## Different pattern:
 #### We may use a different pattern by a specified URL to target for scanning. It can be done by a specified NSE Script. Follow the below command:
- nmap –script http-open-proxy –script-args http-open-proxy.url=http://whatsmyip.org,http-open-.pattern=”Your IP address is” -p8080 <target>
+ nmap –script http-open-proxy –script-args http-open-proxy.url=http://whatsmyip.org,http-open-.pattern=”Your IP address is” -p8080 192.168.1.12
 
 ## Discovering interesting files and directories on admin accounts:
-nmap –script http-enum -p80 <target>
+nmap –script http-enum -p80 192.168.1.12
 
 ## Discovering LUA scripts
-nmap --script http-enum http-enum.displayall -p80 — <target>
+nmap --script http-enum http-enum.displayall -p80 — 192.168.1.12
 
 
 
@@ -1393,10 +1393,10 @@ nmap --script http-enum http-enum.displayall -p80 — <target>
 
 ## Brute forcing HTTP authentication:
 ## Many home routers, IP webcams, and even web applications still rely on HTTP authentication these days, and penetration testers need to try a word list of weak passwords to make sure the system or user accounts are safe. Now, thanks to the NSE script http-brute, we can perform robust dictionary attacks against HTTPAuth protected resources. See below commands:
-nmap -p80 –script http-brute –script-args http-brute.path=/admin/ <target>
+nmap -p80 –script http-brute –script-args http-brute.path=/admin/ 192.168.1.12
 
 ## The script http-brute depends on the NSE libraries unpwdb and brute. These libraries have several script arguments that can be used to tune the auditing for our brute force password. To use different username and password lists, set the arguments userdb and passdb:
-nmap -p80 –script http-brute –script-args userdb=/var/usernames.txt,passdb=/var/passwords.txt <target>
+nmap -p80 –script http-brute –script-args userdb=/var/usernames.txt,passdb=/var/passwords.txt 192.168.1.12
 
 
 
@@ -1410,14 +1410,14 @@ nmap -p80 –script http-brute –script-args userdb=/var/usernames.txt,passdb=/
 
 
 
-nmap –script http-brute –script-args brute.mode=creds,brute.credfile=./creds.txt <target>
+nmap –script http-brute –script-args brute.mode=creds,brute.credfile=./creds.txt 192.168.1.12
 mod_userdir Pentesting:
 
 Apache’s module UserDir provides access to the user directories by using URIs with the syntax /~username/. With Nmap we can perform dictionary attacks and determine a list of valid usernames on the web server. To try to enumerate valid users in a web server with mod_userdir; use Nmap with these
 
 arguments:
 
-nmap -p80 –script http-userdir-enum <target>
+nmap -p80 –script http-userdir-enum 192.168.1.12
 
 
 HTTP User Agent
@@ -1426,19 +1426,19 @@ There are some packet filtering products that block requests made using Nmap’s
 
 useragent:
 
-nmap -p80 –script http-brute –script-args http.useragent=”Mozilla 42″ <target>
+nmap -p80 –script http-brute –script-args http.useragent=”Mozilla 42″ 192.168.1.12
 
 HTTP pipelining
 
 Some web servers allow the encapsulation of more than one HTTP request in a single packet. This may speed up the execution of an NSE HTTP script, and it is recommended that it is used if the web server supports it. The HTTP library, by default, tries to pipeline 40 requests and auto adjusts that number according to the traffic conditions, based on the Keep-Alive header.
 
-nmap -p80 –script http-methods –script-args http.pipeline=25 <target>
+nmap -p80 –script http-methods –script-args http.pipeline=25 192.168.1.12
 
 Testing for Default credentials:
 
 Often default credentials are found in the web applications.NSE scripts made easy to find the vulnerable application.
 
-nmap -p80 –script http-default-accounts <target>
+nmap -p80 –script http-default-accounts 192.168.1.12
 
 The script detects web applications by looking at known paths and initiating a login
 
@@ -1450,28 +1450,28 @@ WordPress Auditing:
 
 To find accounts with weak passwords in WordPress installations, use the following Nmap command:
 
-$ nmap -p80 –script http-wordpress-brute <target>
+$ nmap -p80 –script http-wordpress-brute 192.168.1.12
 
 To set the number of threads, use the script argument http-wordpress-brute.threads:
 
 $ nmap -p80 –script http-wordpress-brute –script-args http-wordpressbrute.
-threads=5 <target>
+threads=5 192.168.1.12
 
 If the server has virtual hosting, set the host field by using the argument http-wordpressbrute.
 
 hostname:
 
 nmap -p80 –script http-wordpress-brute –script-args http-
-wordpressbrute.hostname=”ahostname.wordpress.com” <target>
+wordpressbrute.hostname=”ahostname.wordpress.com” 192.168.1.12
 
 To set a different login URI, use the argument http-wordpress-brute.uri:
 
 $ nmap -p80 –script http-wordpress-brute –script-args http-wordpressbrute.
-uri=”/hidden-wp-login.php” <target>
+uri=”/hidden-wp-login.php” 192.168.1.12
 
 To change the name of the POST variable that stores the usernames and passwords, set the arguments http-wordpress-brute.uservar and http-wordpress-brute.passvar:
 
-$ nmap -p80 –script http-wordpress-brute –script-args http-wordpressbrute.uservar=usuario,http-wordpress-brute.passvar=pasguord <target>
+$ nmap -p80 –script http-wordpress-brute –script-args http-wordpressbrute.uservar=usuario,http-wordpress-brute.passvar=pasguord 192.168.1.12
 
 Joomla Auditing:
 
@@ -1481,7 +1481,7 @@ e-commerce. Detecting user accounts with weak passwords is a common task for pen
 
 testers, and Nmap helps with that by using the NSE script http-joomla-brute.
 
-nmap -p80 –script http-joomla-brute <target>
+nmap -p80 –script http-joomla-brute 192.168.1.12
 
 NB: the same method for WordPress will apply to Joomla
 
@@ -1493,45 +1493,45 @@ actually exploitable in the current environment.
 
 To detect a Web Application Firewall or Intrusion Prevention System:
 
-nmap p80 –script http-waf-detect <target>-
+nmap p80 –script http-waf-detect 192.168.1.12-
 
 As we can see, there is a firewall mod_security which throws an error:
 
 To detect changes in the response body, use the argument http-waf-detect. detectBodyChanges. I recommend that you enable it when dealing with pages with little dynamic content:
 
-nmap -p80 –script http-waf-detect –script-args=”http-waf-detect.detectBodyChanges” <target>
+nmap -p80 –script http-waf-detect –script-args=”http-waf-detect.detectBodyChanges” 192.168.1.12
 
 To include more attack payloads, use the script argument http-waf-detect.aggro. This mode generates more HTTP requests but can also trigger more products:
 
-nmap -p80 –script http-waf-detect –script-args=”http-waf-detect.aggro” <target>
+nmap -p80 –script http-waf-detect –script-args=”http-waf-detect.aggro” 192.168.1.12
 
 HTTP User Agent
 
 There are some packet filtering products that block requests made using Nmap’s default HTTP User Agent. You can use a different User Agent value by setting the argument http.useragent:
 
-nmap -p80 –script http-waf-detect –script-args http.useragent=”Mozilla 42″ <target>
+nmap -p80 –script http-waf-detect –script-args http.useragent=”Mozilla 42″ 192.168.1.12
 
 HTTP pipelining
 
 Some web servers allow the encapsulation of more than one HTTP request in a single packet. This may speed up the execution of an NSE HTTP script, and it is recommended that it is used if the web server supports it. The HTTP library, by default, tries to pipeline 40 requests and automatically adjusts that number according to the traffic conditions, based on the Keep-Alive header.
 
-$ nmap -p80 –script http-methods –script-args http.pipeline=25 <target>
+$ nmap -p80 –script http-methods –script-args http.pipeline=25 192.168.1.12
 
 Additionally, you can use the argument http.max-pipeline to set the maximum number of HTTP requests to be added to the pipeline. If the script parameter http.pipeline is set, this argument will be ignored:
 
-$.nmap -p80 –script http-methods –script-args http.max-pipeline=10 <target>
+$.nmap -p80 –script http-methods –script-args http.max-pipeline=10 192.168.1.12
 
 Detecting XST Vulnerabilities:
 
 Cross Site Tracing (XST) vulnerabilities are caused by the existence of Cross Site Scripting vulnerabilities (XSS) in web servers where the HTTP method TRACE is enabled. This technique is mainly used to bypass cookie restrictions imposed by the directive httpOnly. Pen testers can save time by using Nmap to quickly determine if the web server has the method TRACE enabled.
 
-nmap -p80 –script http-methods,http-trace –script-args http-methods.retest <target>
+nmap -p80 –script http-methods,http-trace –script-args http-methods.retest 192.168.1.12
 
 Detecting XSS Vulnerabilities:
 
 XSS or cross site scripting is a well known attack where an attacker can execute JavaScript. Cross Site Scripting vulnerabilities allow attackers to spoof content, steal user cookies, and even execute malicious code on the user’s browsers. There are even advanced exploitation frameworks such as Beef that allow attackers to perform complex attacks through JavaScript hooks. Web pen testers can use Nmap to discover these vulnerabilities in web servers in an automated manner. For that, Nmap has a solution, which is NSE.
 
-nmap -p80 –script http-unsafe-output-escaping <target>
+nmap -p80 –script http-unsafe-output-escaping 192.168.1.12
 
 The script http-unsafe-output-escaping was written by Martin Holst Swende, and it spiders a web server to detect the possible problems with the way web applications return output based on user input. The script inserts the following payload into all the parameters it finds:
 
@@ -1549,15 +1549,15 @@ SQL injection vulnerabilities are caused by the lack of sanitation of user input
 
 To scan a web server looking for files vulnerable to SQL injection by using Nmap, use the following command:
 
-nmap -p80 –script http-sql-injection <target>
+nmap -p80 –script http-sql-injection 192.168.1.12
 
 The httpspider library behavior can be configured via library arguments. By default, it uses pretty conservative values to save resources, but during a comprehensive test, we need to tweak several of them to achieve optimum results. For example, the library will only crawl 20 pages by default, but we can set the argument httpspider.maxpagecount accordingly for bigger sites, as shown in the following command:
 
-nmap -p80 –script http-sql-injection –script-args httpspider.maxpagecount=200 <target>
+nmap -p80 –script http-sql-injection –script-args httpspider.maxpagecount=200 192.168.1.12
 
 Another interesting argument is httpspider.withinhost, which limits the web crawler to a given host. This is turned on by default, but if you need to test a collection of web applications linked to each other, you could use the following command:
 
-nmap -p80 –script http-sql-injection –script-args httpspider.withinhost=false <target>
+nmap -p80 –script http-sql-injection –script-args httpspider.withinhost=false 192.168.1.12
 
 The official documentation for the library can be found at
 
@@ -1567,13 +1567,13 @@ HTTP User Agent
 
 There are some packet filtering products that block requests made using Nmap’s default HTTP User Agent. We can use a different User Agent value by setting the argument http.useragent:
 
-nmap -p80 –script http-sql-injection –script-args http.useragent=”Mozilla 42″ <target>
+nmap -p80 –script http-sql-injection –script-args http.useragent=”Mozilla 42″ 192.168.1.12
 
 HTTP pipelining
 
 Some web servers allow the encapsulation of more than one HTTP request in a single packet. This may speed up the execution of an NSE HTTP script, and it is recommended that this is used if the web server supports it. The HTTP library, by default, tries to pipeline 40 requests and automatically adjusts that number according to the traffic conditions, based on the Keep-Alive header.
 
-nmap -p80 –script http-sql-injection –script-args http.pipeline=25<target
+nmap -p80 –script http-sql-injection –script-args http.pipeline=25 192.168.1.12
 
 N.B: there are some examples for which a screenshot is unavailable because it’s impossible for everything to be put here. My recommendation is for all readers to try all commands and let me know if any problem occurs. There are lots of NSE scripts available for pen testing. The above are a few examples. All the scripts will be discussed in the upcoming installments.
 
