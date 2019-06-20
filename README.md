@@ -2,6 +2,33 @@
 
 As a pentester, we must understand and know what this extremely powerful tool is capable of, it can do SO Much more then just scanning ports ;-)
 
+# Install nmap on Gentoo Linux
+#### Enable all useflags for get all features availabe, zenmap is required if you want include the GUI for NMAP
+
+      echo "net-analyzer/nmap libssh2 ncat ndiff nmap-update nping system-lua zenmap" >> /etc/portage/package.use/nmap
+      emerge --ask net-analyzer/nmap
+
+# Installation on Debian Linux
+
+       apt -qq install nmap -y
+
+# Installation on Kali Linux (PRE INSTALLED)
+
+       apt -qq install nmap -y
+
+# Installation on Ubuntu Linux
+
+       apt -qq install nmap -y
+
+# Installation on Windows 
+
+       Download: https://nmap.org/dist/nmap-7.70-setup.exe
+       Place the file in a folder, open properties and copy the location of nmap, open powershell and now
+       cd <location of nmap>
+       nmap --help
+
+
+
 
 ## AFP - Brute-Force                              
 _Performs password guessing against Apple Filing Protocol (AFP)_
