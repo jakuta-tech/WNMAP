@@ -15,6 +15,7 @@ _Performs password guessing against Apple Filing Protocol (AFP)_
 
 ## AJP - Brute-Force                          
 _Performs brute force passwords auditing against the Apache JServ protocol. The Apache JServ Protocol is commonly used by web servers to communicate with back-end Java application server containers_
+
      root@hostname: ~/ # nmap -p 8009 <ip> --script ajp-brute
 
      |PORT     STATE SERVICE
