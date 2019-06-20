@@ -69,7 +69,7 @@ As a pentester, we must understand and know what this extremely powerful tool is
      root@hostname: ~/ nmap --script-updatedb: Update the script database.
      root@hostname: ~/ nmap --script-help=<Lua scripts>: Show help about scripts.
 
-######### OBS:  <Lua scripts> is a comma-separated list of script-files or script-categories.
+##### OBS:  <Lua scripts> is a comma-separated list of script-files or script-categories.
 
 #### OS DETECTION:
      root@hostname: ~/ nmap -O: Enable OS detection
@@ -1512,22 +1512,22 @@ nmap -p 22 open -sV 192.168.2.0/24
      root@hostname: ~/ # nmap -T0 -b username:password@ftpserver.tld:21 victim.tld 192.168.1.121
 
 #### Fragmentation
-######### Nmap will split into small small packets for bypassing firewall. This technique is very old, still it will work if there is a misconfiguration of firewall.
+###### Nmap will split into small small packets for bypassing firewall. This technique is very old, still it will work if there is a misconfiguration of firewall.
      root@hostname: ~/ # nmap -f host
 
 #### Decoy scan:
-######### Here Nmap will generate random 10 IPs and it will scan the target using 10 IP and source.
+###### Here Nmap will generate random 10 IPs and it will scan the target using 10 IP and source.
      root@hostname: ~/ # nmap -D RND:10 TARGET
 
 #### Here decoys are specified by the attacker.
      root@hostname: ~/ # nmap -D decoy1,decoy2,decoy3 192.168.1.121
 
 #### Randomize Target Scan Order:
-######### The The -randomize-hosts option is used to randomize the scanning order of the specified targets. The -randomize-hosts option helps prevent scans of multiple targets from being detected by firewalls and intrusion detection systems.
+###### The The -randomize-hosts option is used to randomize the scanning order of the specified targets. The -randomize-hosts option helps prevent scans of multiple targets from being detected by firewalls and intrusion detection systems.
      root@hostname: ~/ # nmap -randomize-hosts targets
 
 #### Spoof MAC address:
-######### Specifically the -spoof-mac option gives you the ability to choose a MAC address from a specific vendor, 
+###### Specifically the -spoof-mac option gives you the ability to choose a MAC address from a specific vendor, 
      root@hostname: ~/ # nmap -sT -PN -spoof-mac aa:bb:cc:dd:ee:ff192.168.1.121
 
 #### SSL Post-processor Scan
@@ -1543,7 +1543,7 @@ nmap -p 22 open -sV 192.168.2.0/24
      root@hostname: ~/ nmap -script http-open-proxy -p8080 192.168.1.12
 
 #### Different pattern:
-######### We may use a different pattern by a specified URL to target for scanning. It can be done by a specified NSE Script. Follow the below command:
+###### We may use a different pattern by a specified URL to target for scanning. It can be done by a specified NSE Script. Follow the below command:
      root@hostname: ~/  nmap -script http-open-proxy -script-args http-open-proxy.url=http://whatsmyip.org,http-open-.pattern=”Your IP address is” -p8080 192.168.1.12
 
 #### Discovering interesting files and directories on admin accounts:
