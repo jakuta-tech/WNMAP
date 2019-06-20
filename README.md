@@ -9,7 +9,7 @@ _Performs password guessing against Apple Filing Protocol (AFP)_
      |PORT    STATE SERVICE
      |548/tcp open  afp
      | afp-brute:
-     `->  admin:KenSentMe => Valid credentials
+     |_  admin:KenSentMe => Valid credentials
 
 
 
@@ -23,7 +23,7 @@ _ Performs brute force passwords auditing against the Apache JServ protocol. The
      |   Accounts
      |     root:secret - Valid credentials
      |   Statistics
-     `->    Performed 1946 guesses in 23 seconds, average tps: 82
+     |_    Performed 1946 guesses in 23 seconds, average tps: 82
 
 
 
@@ -38,7 +38,7 @@ _Performs Brute-Force password auditing against the BackOrifice service_ The bac
      |   Accounts:
      |     michael => Valid credentials
      |   Statistics
-     `->    Perfomed 60023 guesses in 467 seconds, average tps: 138
+     |_    Perfomed 60023 guesses in 467 seconds, average tps: 138
 
 
 ## Cassandra - Brute-Force                     
@@ -53,7 +53,7 @@ _Performs Brute-Force password auditing against the Cassandra database_
      |     admin:lover - Valid credentials
      |     admin:lover - Valid credentials
      |   Statistics
-     `->    Performed 4581 guesses in 1 seconds, average tps: 4581
+     |_    Performed 4581 guesses in 1 seconds, average tps: 4581
 
 
 ## Cics-enum
@@ -73,7 +73,7 @@ _CICS transaction ID enumerator for IBM mainframes_ This script is based on main
      |     CEDA: Valid - CICS Transaction ID
      |     CEDF: Potentially Valid - CICS Transaction ID
      |     DSNC: Valid - CICS Transaction ID
-     `->  Statistics: Performed 31 guesses in 114 seconds, average tps: 0
+     |_  Statistics: Performed 31 guesses in 114 seconds, average tps: 0
 
 
 
@@ -88,7 +88,7 @@ _CICS User ID brute forcing script for the CESL login screen_
      | cics-user-brute:
      |   Accounts:
      |     PLAGUE: Valid - CICS User ID
-     `->  Statistics: Performed 31 guesses in 114 seconds, average tps: 0
+     |_  Statistics: Performed 31 guesses in 114 seconds, average tps: 0
 
 
 
@@ -103,7 +103,7 @@ _CICS User ID enumeration script for the CESL/CESN Login screen_
      | cics-user-enum:
      |   Accounts:
      |     PLAGUE: Valid - CICS User ID
-     `->  Statistics: Performed 31 guesses in 114 seconds, average tps: 0
+     |_  Statistics: Performed 31 guesses in 114 seconds, average tps: 0
 
 
 
@@ -117,7 +117,7 @@ _Attempts to guess valid credentials for the Citrix PN Web Agent XML Service_ Th
      | citrix-brute-xml:
      |   Joe:password => Must change password at next logon
      |   Luke:summer => Login was successful
-     `->  Jane:secret => Account is disabled
+     |_  Jane:secret => Account is disabled
 
 
 
@@ -136,7 +136,7 @@ _Performs Brute-Force password auditing against CVS pserver authentication_
      |     hotchner:francisco - Account is valid
      |     reid:secret - Account is valid
      |   Statistics
-     `->    Performed 544 guesses in 14 seconds, average tps: 38
+     |_    Performed 544 guesses in 14 seconds, average tps: 38
 
 
 
@@ -152,7 +152,7 @@ _Attempts to guess the name of the CVS repositories hosted on the remote server_
      |     /myrepos
      |     /demo
      |   Statistics
-     `->    Performed 14 guesses in 1 seconds, average tps: 14
+     |_    Performed 14 guesses in 1 seconds, average tps: 14
 
 
 
@@ -167,7 +167,7 @@ _Performs Brute-Force password auditing against the DelugeRPC daemon_
      |   Accounts
      |     admin:default - Valid credentials
      |   Statistics
-     `->    Performed 8 guesses in 1 seconds, average tps: 8
+     |_    Performed 8 guesses in 1 seconds, average tps: 8
 
 
 
@@ -177,11 +177,10 @@ _Performs Brute-Force password auditing against the Lotus Domino Console_
      root@hostname: ~/ # nmap --script domcon-brute -p 2050 <host>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |2050/tcp open  unknown syn-ack
      | domcon-brute:
      |   Accounts
-     `->    patrik karlsson:secret => Login correct
+     |_    patrik karlsson:secret => Login correct
 
 
 
@@ -191,13 +190,12 @@ _Performs Brute-Force password auditing against an iPhoto Library_
      root@hostname: ~/ # nmap --script dpap-brute -p 8770 <host>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |8770/tcp open  apple-iphoto syn-ack
      | dpap-brute:
      |   Accounts
      |     secret => Login correct
      |   Statistics
-     `->    Perfomed 5007 guesses in 6 seconds, average tps: 834
+     |_    Perfomed 5007 guesses in 6 seconds, average tps: 834
 
 
 ## DRDA - Brute-Force
@@ -206,10 +204,9 @@ _Performs password guessing against databases sup     |PORTing the IBM DB2 proto
      root@hostname: ~/ # nmap -p 50000 --script drda-brute <target>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |50000/tcp open  drda
      | drda-brute:
-     `->  db2admin:db2admin => Valid credentials
+     |_  db2admin:db2admin => Valid credentials
 
 
 
@@ -225,7 +222,7 @@ _Performs Brute-Force password auditing against FTP servers_
      |   Accounts
      |     root:root - Valid credentials
      |   Statistics
-     `->    Performed 510 guesses in 610 seconds, average tps: 0
+     |_    Performed 510 guesses in 610 seconds, average tps: 0
 
 
 ## HTTP - Brute-Force
@@ -234,12 +231,11 @@ _Performs Brute-Force password auditing against http basic, digest and ntlm auth
      root@hostname: ~/ # nmap --script http-brute -p 80 <host>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |80/tcp   open  http    syn-ack
      | http-brute:
      |   Accounts:
      |     user:user - Valid credentials
-     `->  Statistics: Performed 123 guesses in 1 seconds, average tps: 123
+     |_  Statistics: Performed 123 guesses in 1 seconds, average tps: 123
 
 
 
@@ -249,13 +245,12 @@ _Performs Brute-Force password auditing against http form-based authentication_
      root@hostname: ~/ # nmap --script http-form-brute -p 80 <host>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |80/tcp   open  http    syn-ack
      | http-form-brute:
      |   Accounts
      |     Patrik Karlsson:secret - Valid credentials
      |   Statistics
-     `->    Perfomed 60023 guesses in 467 seconds, average tps: 138
+     |_    Perfomed 60023 guesses in 467 seconds, average tps: 138
 
 
 ## HTTP-IIS-Short-Name - Brute-Force
@@ -286,7 +281,7 @@ _Attempts to Brute-Force the 8_3 filenames (commonly known as short names) of fi
      |
      |     References:
      |       http://soroush.secproject.com/downloadable/microsoft_iis_tilde_character_vulnerability_feature.pdf
-     `->      https://github.com/irsdl/IIS-ShortName-Scanner
+     |_      https://github.com/irsdl/IIS-ShortName-Scanner
 
 
 ## HTTP-Joomla - Brute-Force
@@ -296,13 +291,12 @@ _Performs Brute-Force password auditing against Joomla web CMS installations_
 
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |80/tcp open  http    syn-ack
      | http-joomla-brute:
      |   Accounts
      |     xdeadbee:i79eWBj07g => Login correct
      |   Statistics
-     `->    Perfomed 499 guesses in 301 seconds, average tps: 0
+     |_    Perfomed 499 guesses in 301 seconds, average tps: 0
 
 
 
@@ -317,7 +311,7 @@ _Performs Brute-Force password guessing against HTTP proxy servers_
      |   Accounts
      |     patrik:12345 - Valid credentials
      |   Statistics
-     `->    Performed 6 guesses in 2 seconds, average tps: 3
+     |_    Performed 6 guesses in 2 seconds, average tps: 3
 
 
 ## HTTP-WordPress - Brute-Force
@@ -326,13 +320,12 @@ _Performs Brute-Force password auditing against Wordpress CMS/blog installations
      root@hostname: ~/ # nmap -sV --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com,http-wordpress-brute.threads=3,brute.firstonly=true' <target>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |80/tcp   open  http    syn-ack
      | http-wordpress-brute:
      |   Accounts
      |     0xdeadb33f:god => Login correct
      |   Statistics
-     `->    Perfomed 103 guesses in 17 seconds, average tps: 6
+     |_    Perfomed 103 guesses in 17 seconds, average tps: 6
 
 
 
@@ -341,17 +334,14 @@ _Performs Brute-Force password auditing against Wordpress CMS/blog installations
 _Performs Brute-Force password auditing against the Asterisk IAX2 protocol_ Guessing fails when a large number of attempts is made due to the maxcallnumber limit (default 2048)_ In case your getting "ERROR: Too many retries, aborted ___" after a while, this is most likely what's happening_ In order to avoid this problem try: - reducing the size of your dictionary - use the brute delay option to introduce a delay between guesses - split the guessing up in chunks and wait for a while between them_   
  
      root@hostname: ~ nmap -sU -p 4569 <ip> --script iax2-brute
-     
 
-     |PORT    STATE SERVICE REASON
-     +-------------------------------
-     |-----------------------------------------
-     |4569/udp  open          filtered unknown
-     |   iax2-brute:
-     |   Accounts
-     |          1002:password12 - Valid credentials
-     |   Statistics:
-     |     Performed 1850 guesses in 2 seconds, average tps: 925
+     | PORT     STATE         SERVICE   
+     |4569/udp open     |filtered unknown
+     |  iax2-brute:
+     |    Accounts
+     |      1002:password12 - Valid credentials
+     |    Statistics
+     _    Performed 1850 guesses in 2 seconds, average tps: 925
 
 
 
@@ -362,8 +352,6 @@ _Performs Brute-Force password auditing against IMAP servers using either LOGIN,
      root@hostname: ~/ # nmap -p 143,993 --script imap-brute <host>
 
      |PORT    STATE SERVICE REASON
-     +-------------------------------
-     |--------------------------------
      |143/tcp open  imap    syn-ack
      | imap-brute:
      |   Accounts
@@ -371,7 +359,7 @@ _Performs Brute-Force password auditing against IMAP servers using either LOGIN,
      |     lane:sniper - Valid credentials
      |     parker:scorpio - Valid credentials
      |   Statistics
-     `->  Performed 62 guesses in 10 seconds, average tps: 6
+     |_    Performed 62 guesses in 10 seconds, average tps: 6
 
 
 
@@ -385,7 +373,7 @@ _Tests for the presence of the LibreOffice Impress Remote server_ Checks if a PI
      | impress-remote-discover:
      |   Impress Version: 4.3.3.2
      |   Remote PIN: 0000
-     `->  Client Name used: Firefox OS
+     |_  Client Name used: Firefox OS
 
 
 ## Informix - Brute-Force
@@ -399,7 +387,7 @@ _Performs Brute-Force password auditing against IBM Informix Dynamic Server_
      |   Accounts
      |     ifxnoob:ifxnoob => Valid credentials
      |   Statistics
-     `->    Perfomed 25024 guesses in 75 seconds, average tps: 320
+     |_    Perfomed 25024 guesses in 75 seconds, average tps: 320
 
 Summary
 -------
@@ -417,11 +405,10 @@ _Performs Brute-Force password auditing against IPMI RPC server_
 
 
      |PORT     STATE  SERVICE REASON
-     +-------------------------------
      |623/udp  open     |filtered  unknown
      | ipmi-brute:
      |   Accounts
-     `->    admin:admin => Valid credentials
+     |_    admin:admin => Valid credentials
 
 
 
@@ -436,7 +423,7 @@ _Performs Brute-Force password auditing against IRC (Internet Relay Chat) server
      |   Accounts
      |     password - Valid credentials
      |   Statistics
-     `->    Performed 1927 guesses in 36 seconds, average tps: 74
+     |_    Performed 1927 guesses in 36 seconds, average tps: 74
 
 
 
@@ -447,13 +434,12 @@ _Performs Brute-Force password auditing against IRC (Internet Relay Chat) server
      root@hostname: ~/ # nmap --script irc-sasl-brute -p 6667 <ip>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |6667/tcp open  irc     syn-ack
      | irc-sasl-brute:
      |   Accounts
      |     root:toor - Valid credentials
      |   Statistics
-     `->    Performed 60 guesses in 29 seconds, average tps: 2
+     |_    Performed 60 guesses in 29 seconds, average tps: 2
 
 
 ## ISCSI - Brute-Force
@@ -467,7 +453,7 @@ _Performs Brute-Force password auditing against iSCSI targets_
      |   Accounts
      |     user:password123456 => Valid credentials
      |   Statistics
-     `->    Perfomed 5000 guesses in 7 seconds, average tps: 714
+     |_    Perfomed 5000 guesses in 7 seconds, average tps: 714
 
 
 
@@ -479,13 +465,13 @@ _Attempts to brute-force LDAP authentication_ By default it uses the built-in us
 
      |389/tcp open  ldap
      | ldap-brute:
-     `->  ldaptest:ldaptest => Valid credentials
+     |_  ldaptest:ldaptest => Valid credentials
      |   restrict.ws:restricted1 => Valid credentials, account cannot log in from current host
      |   restrict.time:restricted1 => Valid credentials, account cannot log in at current time
      |   valid.user:valid1 => Valid credentials
      |   expired.user:expired1 => Valid credentials, account expired
      |   disabled.user:disabled1 => Valid credentials, account disabled
-     `->  must.change:need2change => Valid credentials, password must be changed at next logon
+     |_  must.change:need2change => Valid credentials, password must be changed at next logon
 
 
 
@@ -495,13 +481,12 @@ _Attempts to enumerate Logical Units (LU) of TN3270E servers_
      
      root@hostname: ~/ # nmap --script lu-enum --script-args lulist=lus.txt,lu-enum.path="/home/dade/screenshots/" -p 23 -sV <targets>
 
-     |PORT     STATE SERVICE REASON
-     +-------------------------------  VERSION
+     |PORT     STATE SERVICE REASON  VERSION
      |23/tcp   open  tn3270  syn-ack IBM Telnet TN3270 (TN3270E)
      | lu-enum: 
      |   Logical Units: 
      |     LU:BSLVLU69 - Valid credentials
-     `->  Statistics: Performed 7 guesses in 7 seconds, average tps: 1.0
+     |_  Statistics: Performed 7 guesses in 7 seconds, average tps: 1.0
 
 
 
@@ -517,7 +502,7 @@ _Performs Brute-Force password auditing against Couchbase Membase servers_
      |   Accounts
      |     buckettest:toledo - Valid credentials
      |   Statistics
-     `->    Performed 5000 guesses in 2 seconds, average tps: 2500
+     |_    Performed 5000 guesses in 2 seconds, average tps: 2500
 
 
 ## Metasploit-MSGRPC - Brute-Force
@@ -539,7 +524,7 @@ _Performs Brute-Force password auditing against a Metasploit RPC server using th
      |   Accounts
      |     root:root - Valid credentials
      |   Statistics
-     `->    Performed 10 guesses in 10 seconds, average tps: 1
+     |_    Performed 10 guesses in 10 seconds, average tps: 1
 
 
 
@@ -549,13 +534,12 @@ _Performs Brute-Force password auditing against Mikrotik RouterOS devices with t
      root@hostname: ~/ # nmap -p8728 --script mikrotik-routeros-brute <target>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |8728/tcp open  unknown syn-ack
      | mikrotik-routeros-brute:
      |   Accounts
      |     admin:dOsmyvsvJGA967eanX - Valid credentials
      |   Statistics
-     `->    Performed 60 guesses in 602 seconds, average tps: 0
+     |_    Performed 60 guesses in 602 seconds, average tps: 0
 
 
 
@@ -571,7 +555,7 @@ _Performs Brute-Force password auditing against the RPA Tech Mobile Mouse server
      |   Accounts
      |     vanilla - Valid credentials
      |   Statistics
-     `->    Performed 1199 guesses in 23 seconds, average tps: 47
+     |_    Performed 1199 guesses in 23 seconds, average tps: 47
 
 
 
@@ -587,7 +571,7 @@ _ Performs Brute-Force password auditing against the MongoDB database_
      |   Accounts
      |     root:Password1 - Valid credentials
      |   Statistics
-     `->    Performed 3542 guesses in 9 seconds, average tps: 393
+     |_    Performed 3542 guesses in 9 seconds, average tps: 393
 
 
 
@@ -600,7 +584,6 @@ _Performs password guessing against Microsoft SQL Server (ms-sql)_ Works best in
      root@hostname: ~/ # nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt <host>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      | ms-sql-brute:
      |   [192.168.100.128\TEST]
      |     No credentials found
@@ -610,7 +593,7 @@ _Performs password guessing against Microsoft SQL Server (ms-sql)_ Works best in
      |     Credentials found:
      |       webshop_reader:secret => Login Success
      |       testuser:secret1234 => PasswordMustChange
-     `->      lordvader:secret1234 => Login Success
+     |_      lordvader:secret1234 => Login Success
 
 
 
@@ -620,7 +603,6 @@ _Performs password guessing against MySQL_
      root@hostname: ~/ # nmap --script=mysql-brute <target>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |3306/tcp open  mysql
      | mysql-brute:
      |   Accounts
@@ -634,7 +616,6 @@ _Performs valid-user enumeration against MySQL server using a bug discovered and
      root@hostname: ~/ # nmap --script=mysql-enum <target>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |3306/tcp open  mysql   syn-ack
      | mysql-enum:
      |   Accounts
@@ -642,7 +623,7 @@ _Performs valid-user enumeration against MySQL server using a bug discovered and
      |     test:<empty> - Valid credentials
      |     test_mysql:<empty> - Valid credentials
      |   Statistics
-     `->    Performed 11 guesses in 1 seconds, average tps: 11
+     |_    Performed 11 guesses in 1 seconds, average tps: 11
 
 
 
@@ -658,7 +639,7 @@ _Performs Brute-Force password auditing against a Nessus vulnerability scanning 
      |   Accounts
      |     nessus:nessus - Valid credentials
      |   Statistics
-     `->    Performed 35 guesses in 75 seconds, average tps: 0
+     |_    Performed 35 guesses in 75 seconds, average tps: 0
 
 This script does not appear to perform well when run using multiple threads
 Although, it's very slow running under a single thread it does work as intended
@@ -671,13 +652,12 @@ _Performs Brute-Force password auditing against a Nessus vulnerability scanning 
      root@hostname: ~/ # nmap -sV --script=nessus-xmlrpc-brute <target>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |8834/tcp open  unknown syn-ack
      | nessus-xmlrpc-brute:
      |   Accounts
      |     nessus:nessus - Valid credentials
      |   Statistics
-     `->    Performed 1933 guesses in 26 seconds, average tps: 73
+     |_    Performed 1933 guesses in 26 seconds, average tps: 73
 
 
 
@@ -687,7 +667,7 @@ _Performs Brute-Force password auditing against the Netbus backdoor ("remote adm
      root@hostname: ~/ # nmap -p 12345 --script netbus-brute <target>
 
      |12345/tcp open  netbus
-     `->netbus-brute: password123
+     |_netbus-brute: password123
 
 
 
@@ -703,7 +683,7 @@ _Performs Brute-Force password auditing against a Nexpose vulnerability scanner 
      |   Accounts
      |     nxadmin:nxadmin - Valid credentials
      |   Statistics
-     `->    Performed 5 guesses in 1 seconds, average tps: 5
+     |_    Performed 5 guesses in 1 seconds, average tps: 5
 
 
 
@@ -715,12 +695,11 @@ _z/OS JES Network Job Entry (NJE) target node name Brute-Force_
      root@hostname: ~/ # nmap --script=nje-node-brute --script-args=hostlist=nje_names.txt -p 175 <target>
 
      |PORT    STATE SERVICE REASON
-     +-------------------------------
      |175/tcp open  nje     syn-ack
      | nje-node-brute:
      |   Node Name:
      |     POTATO:CACTUS - Valid credentials
-     `->  Statistics: Performed 6 guesses in 14 seconds, average tps: 0
+     |_  Statistics: Performed 6 guesses in 14 seconds, average tps: 0
 
 
 
@@ -736,7 +715,7 @@ _z/OS JES Network Job Entry (NJE) 'I record' password Brute-Forcer_
      | nje-pass-brute:
      |   NJE Password:
      |     Password:A - Valid credentials
-     `->  Statistics: Performed 8 guesses in 12 seconds, average tps: 0
+     |_  Statistics: Performed 8 guesses in 12 seconds, average tps: 0
 
 
 
@@ -752,7 +731,7 @@ _Performs Brute-Force password auditing against an Nping Echo service_
      |   Accounts
      |     123abc => Valid credentials
      |   Statistics
-     `->    Perfomed 204 guesses in 204 seconds, average tps: 1
+     |_    Perfomed 204 guesses in 204 seconds, average tps: 1
 
 
 
@@ -764,11 +743,10 @@ _Performs Brute-Force password auditing against the OpenVAS manager using OMPv2_
      root@hostname: ~/ # nmap -p 9390 --script omp2-brute <target>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |9390/tcp open  openvas syn-ack
      | omp2-brute:
      |   Accounts
-     `->    admin:secret => Valid credentials
+     |_    admin:secret => Valid credentials
 
 
 
@@ -791,14 +769,13 @@ _Performs Brute-Force password auditing against Oracle servers_
      root@hostname: ~/ # nmap --script oracle-brute -p 1521 --script-args oracle-brute.sid=ORCL <host>
 
      |PORT     STATE  SERVICE REASON
-     +-------------------------------
      |1521/tcp open  oracle  syn-ack
      | oracle-brute:
      |   Accounts
      |     system:powell => Account locked
      |     haxxor:haxxor => Valid credentials
      |   Statistics
-     `->    Perfomed 157 guesses in 8 seconds, average tps: 19
+     |_    Perfomed 157 guesses in 8 seconds, average tps: 19
 
 
 
@@ -808,14 +785,13 @@ _Exploits the CVE-2012-3137 vulnerability, a weakness in Oracle's O5LOGIN authen
      root@hostname: ~/ # nmap --script oracle-brute-stealth -p 1521 --script-args oracle-brute-stealth.sid=ORCL <host>
 
      |PORT     STATE  SERVICE REASON
-     +-------------------------------
      |1521/tcp open  oracle  syn-ack
      | oracle-brute-stealth:
      |   Accounts
      |     dummy:$o5logon$1245C95384E15E7F0C893FCD1893D8E19078170867E892CE86DF90880E09FAD3B4832CBCFDAC1A821D2EA8E3D2209DB6*4202433F49DE9AE72AE2 - Hashed valid or invalid credentials
      |     nmap:$o5logon$D1B28967547DBA3917D7B129E339F96156C8E2FE5593D42540992118B3475214CA0F6580FD04C2625022054229CAAA8D*7BCF2ACF08F15F75B579 - Hashed valid or invalid credentials
      |   Statistics
-     `->    Performed 2 guesses in 1 seconds, average tps: 2
+     |_    Performed 2 guesses in 1 seconds, average tps: 2
 
 
 
@@ -827,12 +803,11 @@ _Guesses Oracle instance/SID names against the TNS-listener_
      root@hostname: ~/ # nmap --script=oracle-sid-brute -p 1521-1560 <host>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |1521/tcp open  oracle  syn-ack
      | oracle-sid-brute:
      |   orcl
      |   prod
-     `->  devel
+     |_  devel
 
 
 
@@ -847,7 +822,7 @@ _Performs Brute-Force password auditing against the pcAnywhere remote access pro
      |   Accounts
      |     administrator:administrator - Valid credentials
      |   Statistics
-     `->    Performed 2 guesses in 55 seconds, average tps: 0
+     |_    Performed 2 guesses in 55 seconds, average tps: 0
 
 
 
@@ -860,7 +835,7 @@ _Performs password guessing against PostgreSQL_
      |5432/tcp open  pgsql
      | pgsql-brute:
      |   root:<empty> => Valid credentials
-     `->  test:test => Valid credentials
+     |_  test:test => Valid credentials
 
 
 
@@ -876,7 +851,7 @@ _Tries to log into a POP3 account by guessing usernames and passwords_
      | Accounts:
      |  user:pass => Login correct
      | Statistics:
-     `-> Performed 8 scans in 1 seconds, average tps: 8
+     |_ Performed 8 scans in 1 seconds, average tps: 8
 
 
 
@@ -894,7 +869,7 @@ _Performs Brute-Force passwords auditing against a Redis key-value store_
      |   Accounts
      |     toledo - Valid credentials
      |   Statistics
-     `->    Performed 5000 guesses in 3 seconds, average tps: 1666
+     |_    Performed 5000 guesses in 3 seconds, average tps: 1666
 
 
 
@@ -911,7 +886,7 @@ _Performs Brute-Force password auditing against the classic UNIX rexec (remote e
      |   Accounts
      |     nmap:test - Valid credentials
      |   Statistics
-     `->    Performed 16 guesses in 7 seconds, average tps: 2
+     |_    Performed 16 guesses in 7 seconds, average tps: 2
 
 
 ## UNIX-RLogin - Brute-Force                            
@@ -925,7 +900,7 @@ _Performs Brute-Force password auditing against the classic UNIX rlogin (remote 
      |   Accounts
      |     nmap:test - Valid credentials
      |   Statistics
-     `->    Performed 4 guesses in 5 seconds, average tps: 0
+     |_    Performed 4 guesses in 5 seconds, average tps: 0
 
 
 
@@ -937,13 +912,12 @@ _Performs Brute-Force password auditing against the WinPcap Remote Capture Daemo
      root@hostname: ~/ # nmap -p 2002 <ip> --script rpcap-brute
 
      |PORT     STATE SERVICE REASON
-     |-------------------------------
      |2002/tcp open  globe   syn-ack
      | rpcap-brute:
      |   Accounts
      |     monkey:Password1 - Valid credentials
      |   Statistics
-     `->    Performed 3540 guesses in 3 seconds, average tps: 1180
+     |_    Performed 3540 guesses in 3 seconds, average tps: 1180
 
 
 
@@ -955,14 +929,13 @@ _Performs Brute-Force password auditing against the rsync remote file syncing pr
      root@hostname: ~/ # nmap -p 873 --script rsync-brute --script-args 'rsync-brute.module=www' <ip>
 
      |PORT    STATE SERVICE REASON
-     +-------------------------------
      |873/tcp open  rsync   syn-ack
      | rsync-brute:
      |   Accounts
      |     user1:laptop - Valid credentials
      |     user2:password - Valid credentials
      |   Statistics
-     `->    Performed 1954 guesses in 20 seconds, average tps: 97
+     |_    Performed 1954 guesses in 20 seconds, average tps: 97
 
 
 
@@ -980,7 +953,7 @@ _Attempts to enumerate RTSP media URLS by testing for common paths on devices su
      |     rtsp://camera.example.com/mpeg4
      |   other responses:
      |     401:
-     `->      rtsp://camera.example.com/live/mpeg4
+     |_      rtsp://camera.example.com/live/mpeg4
 
 
 
@@ -1009,7 +982,7 @@ Host script results:
      |   thisisaverylong:password => Valid credentials
      |   thisisaverylongname:password => Valid credentials
      |   thisisaverylongnamev:password => Valid credentials
-     `->  web:TeSt => Valid credentials, account disabled
+     |_  web:TeSt => Valid credentials, account disabled
 
 
 ## SMTP - Brute-Force                              
@@ -1018,7 +991,6 @@ _Performs Brute-Force password auditing against SMTP servers using either LOGIN,
      root@hostname: ~/ # nmap -p 25 --script smtp-brute <host>
 
      |PORT    STATE SERVICE REASON
-     +-------------------------------
      |25/tcp  open  stmp    syn-ack
      | smtp-brute:
      |   Accounts
@@ -1026,7 +998,7 @@ _Performs Brute-Force password auditing against SMTP servers using either LOGIN,
      |     lane:sniper - Valid credentials
      |     parker:scorpio - Valid credentials
      |   Statistics
-     `->    Performed 1160 guesses in 41 seconds, average tps: 33
+     |_    Performed 1160 guesses in 41 seconds, average tps: 33
 
 
 
@@ -1042,7 +1014,7 @@ _Attempts to find an SNMP community string by Brute-Force guessing_
      |   Accounts
      |     patrik:12345 - Valid credentials
      |   Statistics
-     `->    Performed 1921 guesses in 6 seconds, average tps: 320
+     |_    Performed 1921 guesses in 6 seconds, average tps: 320
 
 
 
@@ -1064,7 +1036,7 @@ _Performs brute-force password guessing against ssh servers_
      |  Accounts
      |    username:password
      |  Statistics
-     `->   Performed 32 guesses in 25 seconds.
+     |_   Performed 32 guesses in 25 seconds.
 
 ## SVN - Brute-Force                               
 _Performs Brute-Force password auditing against Subversion source code control servers_
@@ -1072,11 +1044,10 @@ _Performs Brute-Force password auditing against Subversion source code control s
      root@hostname: ~/ # nmap --script svn-brute --script-args svn-brute.repo=/svn/ -p 3690 <host>
 
      |PORT     STATE SERVICE REASON
-     +-------------------------------
      |3690/tcp open  svn     syn-ack
      | svn-brute:
      |   Accounts
-     `->    patrik:secret => Login correct
+     |_    patrik:secret => Login correct
 
 Summary
 -------
@@ -1098,7 +1069,7 @@ _Performs brute-force password auditing against telnet servers_
      |   Accounts
      |     wkurtz:colonel
      |   Statistics
-     `->    Performed 15 guesses in 19 seconds, average tps: 0
+     |_    Performed 15 guesses in 19 seconds, average tps: 0
 
 
 
@@ -1115,7 +1086,7 @@ _TSO User ID enumerator for IBM mainframes (z/OS)_ The TSO logon panel tells you
      |     TSO User:RAZOR -  Valid User ID
      |     TSO User:BLADE -  Valid User ID
      |     TSO User:PLAGUE -  Valid User ID
-     `->  Statistics: Performed 6 guesses in 3 seconds, average tps: 2
+     |_  Statistics: Performed 6 guesses in 3 seconds, average tps: 2
 
 
 ## VMWare Authentication Daemon - BruteForce                            
@@ -1129,7 +1100,7 @@ _Performs Brute-Force password auditing against the VMWare Authentication Daemon
      |   Accounts
      |     root:00000 - Valid credentials
      |   Statistics
-     `->    Performed 183 guesses in 40 seconds, average tps: 4
+     |_    Performed 183 guesses in 40 seconds, average tps: 4
 
 
 ## VNC - Brute-Force                               
@@ -1138,11 +1109,10 @@ _Performs Brute-Force password auditing against VNC servers_
      root@hostname: ~/ # nmap --script vnc-brute -p 5900 <host>
 
      |PORT     STATE  SERVICE REASON
-     +-------------------------------
      |5900/tcp open   vnc     syn-ack
      | vnc-brute:
      |   Accounts
-     `->    123456 => Valid credentials
+     |_    123456 => Valid credentials
 
 
 
@@ -1157,7 +1127,7 @@ _Many mainframes use VTAM screens to connect to various applications (CICS, IMS,
      |   VTAM Application ID:
      |     applid:TSO - Valid credentials
      |     applid:CICSTS51 - Valid credentials
-     `->  Statistics: Performed 14 guesses in 5 seconds, average tps: 2
+     |_  Statistics: Performed 14 guesses in 5 seconds, average tps: 2
 
 
 
@@ -1175,7 +1145,7 @@ _Performs Brute-Force password auditing against XMPP (Jabber) instant messaging 
      |     CampbellA:joan123 - Valid credentials
      |     WalkerA:auggie123 - Valid credentials
      |   Statistics
-     `->    Performed 6237 guesses in 5 seconds, average tps: 1247
+     |_    Performed 6237 guesses in 5 seconds, average tps: 1247
 
 
 
