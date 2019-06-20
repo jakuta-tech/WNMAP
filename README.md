@@ -1,8 +1,6 @@
 #!/bin/bash
 
-cat << "EOF"
-# BRUTEFORCING
-# ========================================================================================================================================================
+# NMAP BRUTEFORCING
 # afp-brute                              
 ### Performs password guessing against Apple Filing Protocol (AFP).
      root@hostname: ~ nmap -p 548 --script afp-brute <host>
