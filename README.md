@@ -2,25 +2,140 @@
 
 As a pentester, we must understand and know what this extremely powerful tool is capable of, it can do SO Much more then just scanning ports ;-)
 
-# Install nmap on Gentoo Linux
+
+# OPTIONS SUMMARY
+
+     root@hostname: ~/ # Usage: nmap [Scan Type(s)] [Options] {target specification}
+
+## TARGET SPECIFICATION:
+     root@hostname: ~/ nmap -iL <inputfilename>: Input from list of hosts/networks
+     root@hostname: ~/ nmap -iR <num hosts>: Choose random targets
+     root@hostname: ~/ nmap --exclude <host1[,host2][,host3],...>: Exclude hosts/networks
+     root@hostname: ~/ nmap --excludefile <exclude_file>: Exclude list from file
+
+## HOST DISCOVERY:
+     root@hostname: ~/ nmap -sL: List Scan - simply list targets to scan
+     root@hostname: ~/ nmap -sn: Ping Scan - disable port scan
+     root@hostname: ~/ nmap -Pn: Treat all hosts as online -- skip host discovery
+     root@hostname: ~/ nmap -PS/PA/PU/PY[portlist]: TCP SYN/ACK, UDP or SCTP discovery to given ports
+     root@hostname: ~/ nmap -PE/PP/PM: ICMP echo, timestamp, and netmask request discovery probes
+     root@hostname: ~/ nmap -PO[protocol list]: IP Protocol Ping
+     root@hostname: ~/ nmap -n/-R: Never do DNS resolution/Always resolve [default: sometimes]
+     root@hostname: ~/ nmap --dns-servers <serv1[,serv2],...>: Specify custom DNS servers
+     root@hostname: ~/ nmap --system-dns: Use OS's DNS resolver
+     root@hostname: ~/ nmap --traceroute: Trace hop path to each host
+
+### SCAN TECHNIQUES:
+     root@hostname: ~/ nmap -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+     root@hostname: ~/ nmap -sU: UDP Scan
+     root@hostname: ~/ nmap -sN/sF/sX: TCP Null, FIN, and Xmas scans
+     root@hostname: ~/ nmap --scanflags <flags>: Customize TCP scan flags
+     root@hostname: ~/ nmap -sI <zombie host[:probeport]>: Idle scan
+     root@hostname: ~/ nmap -sY/sZ: SCTP INIT/COOKIE-ECHO scans
+     root@hostname: ~/ nmap -sO: IP protocol scan
+     root@hostname: ~/ nmap -b <FTP relay host>: FTP bounce scan
+
+## SCAN TECHNIQUES:
+     root@hostname: ~/ nmap -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+     root@hostname: ~/ nmap -sU: UDP Scan
+     root@hostname: ~/ nmap -sN/sF/sX: TCP Null, FIN, and Xmas scans
+     root@hostname: ~/ nmap --scanflags <flags>: Customize TCP scan flags
+     root@hostname: ~/ nmap -sI <zombie host[:probeport]>: Idle scan
+     root@hostname: ~/ nmap -sY/sZ: SCTP INIT/COOKIE-ECHO scans
+     root@hostname: ~/ nmap -sO: IP protocol scan
+     root@hostname: ~/ nmap -b <FTP relay host>: FTP bounce scan
+
+## PORT SPECIFICATION AND SCAN ORDER:
+     root@hostname: ~/ nmap -p <port ranges>: Only scan specified ports
+     root@hostname: ~/ nmap --exclude-ports <port ranges>: Exclude the specified ports from scanning
+     root@hostname: ~/ nmap -F: Fast mode - Scan fewer ports than the default scan
+     root@hostname: ~/ nmap -r: Scan ports consecutively - don't randomize
+     root@hostname: ~/ nmap --top-ports <number>: Scan <number> most common ports
+     root@hostname: ~/ nmap --port-ratio <ratio>: Scan ports more common than <ratio>
+
+### SERVICE/VERSION DETECTION:
+     root@hostname: ~/ nmap -sV: Probe open ports to determine service/version info
+     root@hostname: ~/ nmap --version-intensity <level>: Set from 0 (light) to 9 (try all probes)
+     root@hostname: ~/ nmap --version-light: Limit to most likely probes (intensity 2)
+     root@hostname: ~/ nmap --version-all: Try every single probe (intensity 9)
+     root@hostname: ~/ nmap --version-trace: Show detailed version scan activity (for debugging)
+
+## SCRIPT SCAN:
+     root@hostname: ~/ nmap -sC: equivalent to --script=default
+     root@hostname: ~/ nmap --script=<Lua scripts>: <Lua scripts> is a comma separated list of
+     root@hostname: ~/ nmap --script-args=<n1=v1,[n2=v2,...]>: provide arguments to scripts
+     root@hostname: ~/ nmap --script-args-file=filename: provide NSE script args in a file
+     root@hostname: ~/ nmap --script-trace: Show all data sent and received
+     root@hostname: ~/ nmap --script-updatedb: Update the script database.
+     root@hostname: ~/ nmap --script-help=<Lua scripts>: Show help about scripts.
+
+###### OBS:  <Lua scripts> is a comma-separated list of script-files or script-categories.
+
+### OS DETECTION:
+     root@hostname: ~/ nmap -O: Enable OS detection
+     root@hostname: ~/ nmap --osscan-limit: Limit OS detection to promising targets
+     root@hostname: ~/ nmap --osscan-guess: Guess OS more aggressively
+           
+## TIMING AND PERFORMANCE:
+##### _Options which take <time> are in seconds, or append 'ms' (milliseconds)_
+##### _'s' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m)_
+     root@hostname: ~/ nmap -T<0-5>: Set timing template (higher is faster)
+     root@hostname: ~/ nmap --min-hostgroup/max-hostgroup <size>: Parallel host scan group sizes
+     root@hostname: ~/ nmap --min-parallelism/max-parallelism <numprobes>: Probe parallelization
+     root@hostname: ~/ nmap --min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>: Specifies
+     root@hostname: ~/ nmap --max-retries <tries>: Caps number of port scan probe retransmissions.
+     root@hostname: ~/ nmap --host-timeout <time>: Give up on target after this long
+     root@hostname: ~/ nmap --scan-delay/--max-scan-delay <time>: Adjust delay between probes
+     root@hostname: ~/ nmap --min-rate <number>: Send packets no slower than <number> per second
+     root@hostname: ~/ nmap --max-rate <number>: Send packets no faster than <number> per second
+
+## FIREWALL/IDS EVASION AND SPOOFING:
+
+     root@hostname: ~/ nmap -f; --mtu <val>: fragment packets (optionally w/given MTU)
+     root@hostname: ~/ nmap -D <decoy1,decoy2[,ME],...>: Cloak a scan with decoys
+     root@hostname: ~/ nmap -S <IP_Address>: Spoof source address
+     root@hostname: ~/ nmap -e <iface>: Use specified interface
+     root@hostname: ~/ nmap  -g/--source-port <portnum>: Use given port number
+     root@hostname: ~/ nmap --proxies <url1,[url2],...>: Relay connections through HTTP/SOCKS4 proxies
+     root@hostname: ~/ nmap --data <hex string>: Append a custom payload to sent packets
+     root@hostname: ~/ nmap --data-string <string>: Append a custom ASCII string to sent packets
+     root@hostname: ~/ nmap --data-length <num>: Append random data to sent packets
+     root@hostname: ~/ nmap --ip-options <options>: Send packets with specified ip options
+     root@hostname: ~/ nmap --ttl <val>: Set IP time-to-live field
+     root@hostname: ~/ nmap --spoof-mac <mac address/prefix/vendor name>: Spoof your MAC address
+     root@hostname: ~/ nmap --badsum: Send packets with a bogus TCP/UDP/SCTP checksum
+
+## MISC:
+     root@hostname: ~/ nmap -6: Enable IPv6 scanning
+     root@hostname: ~/ nmap -A: Enable OS detection, version detection, script scanning, and traceroute
+     root@hostname: ~/ nmap --datadir <dirname>: Specify custom Nmap data file location
+     root@hostname: ~/ nmap --send-eth/--send-ip: Send using raw ethernet frames or IP packets
+     root@hostname: ~/ nmap --privileged: Assume that the user is fully privileged
+     root@hostname: ~/ nmap --unprivileged: Assume the user lacks raw socket privileges
+     root@hostname: ~/ nmap -V: Print version number
+     root@hostname: ~/ nmap -h: Print this help summary page.
+
+# INSTALL NMAP
+
+### Install nmap on Gentoo Linux
 #### Enable all useflags for get all features availabe, zenmap is required if you want include the GUI for NMAP
 
       echo "net-analyzer/nmap libssh2 ncat ndiff nmap-update nping system-lua zenmap" >> /etc/portage/package.use/nmap
       emerge --ask net-analyzer/nmap
 
-# Installation on Debian Linux
+### Installation on Debian Linux
 
        apt -qq install nmap -y
 
-# Installation on Kali Linux (PRE INSTALLED)
+### Installation on Kali Linux (PRE INSTALLED)
 
        apt -qq install nmap -y
 
-# Installation on Ubuntu Linux
+### Installation on Ubuntu Linux
 
        apt -qq install nmap -y
 
-# Installation on Windows 
+### Installation on Windows 
 
        Download: https://nmap.org/dist/nmap-7.70-setup.exe
        Place the file in a folder, open properties and copy the location of nmap, open powershell and now
@@ -28,6 +143,32 @@ As a pentester, we must understand and know what this extremely powerful tool is
        nmap --help
 
 
+### For openSUSE Leap 42.3 run the following as root:
+zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_42.3/network:utilities.repo
+
+### For openSUSE Leap 15.1 run the following as root:
+zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_15.1/network:utilities.repo
+
+### For openSUSE Leap 15.0 run the following as root:
+zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_15.0/network:utilities.repo
+
+### For openSUSE Factory PowerPC run the following as root:
+zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Factory_PowerPC/network:utilities.repo
+
+### For openSUSE Factory ARM run the following as root:
+
+zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Factory_ARM/network:utilities.repo
+
+### For openSUSE Factory run the following as root:
+zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Factory/network:utilities.repo
+
+### And then: 
+zypper refresh
+zypper install nmap
+
+## After installation, get all scripts by below command:
+
+     root@hostname: ~/ # nmap --script-updatedb
 
 
 ## AFP - Brute-Force                              
@@ -1178,72 +1319,71 @@ _Performs Brute-Force password auditing against XMPP (Jabber) instant messaging 
 
 
 
-## ========================================================================================================================================================
-## NMAP GENERAL USAGES
-## ========================================================================================================================================================## Quick scan
+# NMAP RANDOM TIPS AND TRICKS FROM WUSEMAN
+## ========================================
 
 ## Net Discover
      root@hostname: ~/ # nmap -sP 192.168.1.*
 
-## Quick scan
+### Quick scan
      root@hostname: ~/ # nmap -Pn dhound_io                                                                                                                   
 
-## Fast Scan
+### Fast Scan
      root@hostname: ~/ # nmap -T4 -F 192.168.0.164
 
-## Full TCP Port scan using with service version detection
+### Full TCP Port scan using with service version detection
      root@hostname: ~/ # nmap -p 1-65535 -Pn -sV -sS -T4 dhound_io       
 
 # Get a list of ssh servers on the local subnet
 nmap -p 22 open -sV 192.168.2.0/24
 
 
-## Scan particular ports
+### Scan particular ports
      root@hostname: ~/ # nmap -Pn -p 22,80,443 dhound_io   
 
-## Find linux devices in local network                                                             
+### Find linux devices in local network                                                             
      root@hostname: ~/ # nmap -p 22 --open -sV 192.168.1.0/24                                                                                                
 
-## Trace trafic
+### Trace trafic
      root@hostname: ~/ # nmap --traceroute -p 80 dhound_io                                                                                                   
 
-## Trace trafic with Geo resolving
+### Trace trafic with Geo resolving
      root@hostname: ~/ # nmap --traceroute --script traceroute-geolocation_nse -p 80 dhound_io                                                                
 
-## WHOIS ISP, Country, Company
+### WHOIS ISP, Country, Company
      root@hostname: ~/ # nmap --script=asn-query dhound_io                                                                                                    
 
-## Get SSL Certificate
+### Get SSL Certificate
      root@hostname: ~/ # nmap --script ssl-cert -p 443 -Pn dhound_io                                                                                          
 
-## Test SSL Ciphers
+### Test SSL Ciphers
      root@hostname: ~/ # nmap --script ssl-enum-ciphers -p 443 dhound_io                                                                                      
 
-## Ftp Brute-Force
+### Ftp Brute-Force
      root@hostname: ~/ # nmap --script ftp - Brute-Force --script-args userdb=users_txt,passdb=passwords_txt -p 21 -Pn dhound_io                                      
 
-## HTTP Basic Authentication Brute-Force
+### HTTP Basic Authentication Brute-Force
      root@hostname: ~/ # nmap --script http - Brute-Force -script-args http - Brute-Force_path=/evifile-bb-demo,userdb=users_txt,passdb=passwords_txt -p 80 -Pn dhound_io     
 
-## Find vulnerabilities in safe mode
+### Find vulnerabilities in safe mode
      root@hostname: ~/ # nmap --script default,safe -Pn dhound_io                                                                                             
 
-## Find vulnerabilities in unsafe mode
+### Find vulnerabilities in unsafe mode
      root@hostname: ~/ # nmap --script vuln -Pn dhound_io                                                                                                     
 
-## Run DDos attack
+### Run DDos attack
      root@hostname: ~/ # nmap --script dos -Pn dhound_io                                                                                                      
 
-## Exploit detected vulnerabilities
+### Exploit detected vulnerabilities
      root@hostname: ~/ #      root@hostname: ~/ # nmap --script exploit -Pn dhound_io                                                                                                  
 
-## Find unused IPs on a given subnet
+### Find unused IPs on a given subnet
      root@hostname: ~/ # nmap -sP <subnet>.* | egrep -o '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > results.txt ; for IP in {1..254} ; do echo "<subnet>.${IP}" ; done >> results.txt ; cat results.txt | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4 | uniq -u
 
-## nmap scan hosts for IP, MAC Address and device Vendor/Manufacturer
+### nmap scan hosts for IP, MAC Address and device Vendor/Manufacturer
      root@hostname: ~/ # nmap -sP 10.0.0.0/8 | grep -v "Host" | tail -n +3 | tr '\n' ' ' | sed 's|Nmap|\nNmap|g' | grep "MAC Address" | cut -d " " -f5,8-15
 
-## A list of IPs (only) that are online in a specific subnet.
+### A list of IPs (only) that are online in a specific subnet.
      root@hostname: ~/ # nmap -sP  192.168.1.0/24 | awk "/^Host/"'{ print $3 }' |nawk -F'[()]' '{print $2}'
 
 # Display only hosts up in network
@@ -1252,72 +1392,73 @@ nmap -p 22 open -sV 192.168.2.0/24
 # NMAP_UNDERGROUND_VECTRA
      root@hostname: ~/ # nmap -sS -O -v -oS - 192.168.2.0/24
 
-## Scan Network for Rogue APs.
+### Scan Network for Rogue APs.
      root@hostname: ~/ # nmap -A -p1-85,113,443,8080-8100 -T4 min-hostgroup 50 max-rtt-timeout 2000 initial-rtt-timeout 300 max-retries 3 host-timeout 20m max-scan-delay 1000 -oA wapscan 10.0.0.0/8
 
-## The NMAP command you can use scan for the Conficker virus on your LAN
+### The NMAP command you can use scan for the Conficker virus on your LAN
      root@hostname: ~/ # nmap -PN -T4 -p139,445 -n -v script=smb-check-vulns script-args safe=1 192.168.0.1-254
 
-## nmap IP block and autogenerate comprehensive Nagios service checks
+### nmap IP block and autogenerate comprehensive Nagios service checks
      root@hostname: ~/ # nmap -sS -O -oX /tmp/nmap.xml 10.1.1.0/24 -v -v && perl nmap2nagios.pl -v -r /tmp/10net.xml -o /etc/nagios/10net.cfg
 
-## List of reverse DNS records for a subnet
+### List of reverse DNS records for a subnet
      root@hostname: ~/ # nmap -R -sL 209.85.229.99/27 | awk '{if($3=="not")print"("$2") no PTR";else print$3" is "$2}' | grep '('
 
-## list all opened ports on host
+### list all opened ports on host
      root@hostname: ~/ # nmap -p 1-65535 open localhost
 
-## Get list of servers with a specific port open
+### Get list of servers with a specific port open
      root@hostname: ~/ # nmap -sT -p 80 -oG - 192.168.1.* | grep open
 
-## Scan computers OS and open services on all network
+### Scan computers OS and open services on all network
      root@hostname: ~/ # nmap -O 192.168.1.12/24
 
-## Get info about remote host ports and OS detection
+### Get info about remote host ports and OS detection
      root@hostname: ~/ # nmap -sS -P0 -sV -O 192.168.1.12
 
-## Getting a list of active addresses in your own network.
+### Getting a list of active addresses in your own network.
      root@hostname: ~/ # nmap -n -sP -oG - 10.10.10.*/32 | grep ": Up" | cut -d' ' -f2
 
-## Nmap find open TCP/IP ports for a target that is blocking ping
+### Nmap find open TCP/IP ports for a target that is blocking ping
      root@hostname: ~/ # nmap -sT -PN -vv <target ip>
 
-## Getting a list of active addresses in your own network.
+### Getting a list of active addresses in your own network.
      root@hostname: ~/ # nmap -n -sP -oG - 10.10.10.*/32 | grep ": Up" | cut -d' ' -f2
 
-## script broadcast-pppoe-discover
+### script broadcast-pppoe-discover
      root@hostname: ~/ # nmap -T4 script broadcast-pppoe-discover 192.168.122.0/24
 
-## nmap IP block and autogenerate comprehensive Nagios service checks
+### nmap IP block and autogenerate comprehensive Nagios service checks
      root@hostname: ~/ # nmap -sS -O -oX /tmp/nmap.xml 10.1.1.0/24 -v -v && perl nmap2nagios.pl -v -r /tmp/10net.xml -o /etc/nagios/10net.cfg
 
-## The NMAP command you can use scan for the Conficker virus on your LAN
+### The NMAP command you can use scan for the Conficker virus on your LAN
      root@hostname: ~/ # nmap -PN -T4 -p139,445 -n -v script=smb-check-vulns script-args safe=1 192.168.0.1-254
 
-## nmap  discorvery network on port 80
+### nmap  discorvery network on port 80
      root@hostname: ~/ # nmap -p 80 -T5 -n -min-parallelism 100 open 192.168.1.0/24
 
 
-## nmap all my hosts in EC2
+### nmap all my hosts in EC2
      root@hostname: ~/ # nmap -P0 -sV `aws output json ec2 describe-addresses | jq -r '.Addresses[].PublicIp'` | tee /dev/shm/nmap-output.txt
 
-## List services running on each open port
+### List services running on each open port
      root@hostname: ~/ # nmap -T Aggressive -A -v 127.0.0.1 -p 1-65000
 
-## Nmap list IPs in a network and saves in a txt
+### Nmap list IPs in a network and saves in a txt
      root@hostname: ~/ # nmap -sP 192.168.1.0/24 | grep "Nmap scan report for"| cut -d' ' -f 5  > ips.txt
 
-## count of down available ips
+### count of down available ips
      root@hostname: ~/ # nmap -v -sP 192.168.10.0/24 | grep down | wc -l
 
-## Generate random IP addresses
-     root@hostname: ~/ # nmap -n -iR 0 -sL | cut -d" " -f 2
+###  Locate random web servers for browsing.
+     root@hostname: ~/ # nmap -Pn -sS -p 80 -iR 0 --open to
 
 
 
-## network interface and routing summary
 
-     root@hostname: ~/ ##      wuseman@thinkpad ~ $ nmap  --iflist
+### network interface and routing summary
+
+     root@hostname: ~/ ###      wuseman@thinkpad ~ $ nmap  --iflist
 
      Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-20 19:11 -00
      ************************INTERFACES************************
@@ -1343,271 +1484,88 @@ nmap -p 22 open -sV 192.168.2.0/24
      fe80::/64                                eth0 256
      ff00::/8                                 eth0 256
 
-## Conficker Detection with NMAP
-     root@hostname: ~/ # nmap -PN -d -p445 script=smb-check-vulns script-args=safe=1 IP-RANGES
+### Conficker Detection with NMAP
+     root@hostname: ~/ # nmap -PN -d -p445 -script=smb-check-vulns script-args=safe=1 IP-RANGES
 
 
-## TCP Syn and UDP Scan
+### TCP Syn and UDP Scan
      root@hostname: ~/ # nmap -sS -sU -PN 192.168.1.121
 
-## TCP SYN and UDP scan for all ports (requires root)
+### TCP SYN and UDP scan for all ports (requires root)
      root@hostname: ~/ # nmap -sS -sU -PN -p 1-65535 192.168.1.121
 
-## TCP Window Scan
+### TCP Window Scan
 
-     root@hostname: ~/ # nmap –sW 192.168.1.121
+     root@hostname: ~/ # nmap -sW 192.168.1.121
 
-## TCP Maimon Scan
-     root@hostname: ~/ # nmap –sM 192.168.1.121
+### TCP Maimon Scan
+     root@hostname: ~/ # nmap -sM 192.168.1.121
 
-## SCTP COOKIE ECHO Scan
-     root@hostname: ~/ # nmap –-sZ 192.168.1.121
+### SCTP COOKIE ECHO Scan
+     root@hostname: ~/ # nmap --sZ 192.168.1.121
 
-## Attack a target with a zombie host
-     root@hostname: ~/ # nmap -sI Zombie:113 -Pn -p20-80,110-180 -r –packet-trace -v 192.168.1.121
+### Attack a target with a zombie host
+     root@hostname: ~/ # nmap -sI Zombie:113 -Pn -p20-80,110-180 -r -packet-trace -v 192.168.1.121
 
-## FTP Bounce Scan
+### FTP Bounce Scan
 
      root@hostname: ~/ # nmap -T0 -b username:password@ftpserver.tld:21 victim.tld 192.168.1.121
 
-## Fragmentation
-#### Nmap will split into small small packets for bypassing firewall. This technique is very old, still it will work if there is a misconfiguration of firewall.
-     root@hostname: ~/ # nmap –f host
+### Fragmentation
+###### Nmap will split into small small packets for bypassing firewall. This technique is very old, still it will work if there is a misconfiguration of firewall.
+     root@hostname: ~/ # nmap -f host
 
-## Decoy scan:
-#### Here Nmap will generate random 10 IPs and it will scan the target using 10 IP and source.
-     root@hostname: ~/ # nmap –D RND:10 TARGET
+### Decoy scan:
+###### Here Nmap will generate random 10 IPs and it will scan the target using 10 IP and source.
+     root@hostname: ~/ # nmap -D RND:10 TARGET
 
-## Here decoys are specified by the attacker.
-     root@hostname: ~/ # nmap –D decoy1,decoy2,decoy3 192.168.1.121
+### Here decoys are specified by the attacker.
+     root@hostname: ~/ # nmap -D decoy1,decoy2,decoy3 192.168.1.121
 
-## Randomize Target Scan Order:
-#### The The –randomize-hosts option is used to randomize the scanning order of the specified targets. The –randomize-hosts option helps prevent scans of multiple targets from being detected by firewalls and intrusion detection systems.
-     root@hostname: ~/ # nmap –randomize-hosts targets
+### Randomize Target Scan Order:
+###### The The -randomize-hosts option is used to randomize the scanning order of the specified targets. The -randomize-hosts option helps prevent scans of multiple targets from being detected by firewalls and intrusion detection systems.
+     root@hostname: ~/ # nmap -randomize-hosts targets
 
-## Spoof MAC address:
-#### Specifically the –spoof-mac option gives you the ability to choose a MAC address from a specific vendor, 
-     root@hostname: ~/ # nmap -sT -PN –spoof-mac aa:bb:cc:dd:ee:ff192.168.1.121
+### Spoof MAC address:
+###### Specifically the -spoof-mac option gives you the ability to choose a MAC address from a specific vendor, 
+     root@hostname: ~/ # nmap -sT -PN -spoof-mac aa:bb:cc:dd:ee:ff192.168.1.121
 
-## SSL Post-processor Scan
-     root@hostname: ~/ # nmap -Pn -sSV -T4 –F 192.168.1.121
+### SSL Post-processor Scan
+     root@hostname: ~/ # nmap -Pn -sSV -T4 -F 192.168.1.121
 
-## HTTP User Agent:
-cmd: nmap -p80 –script http-methods –script-args http.useragent=”Mozilla 5″ 192.168.1.121
+### HTTP User Agent:
+     root@hostname: ~/ nmap -p80 -script http-methods -script-args http.useragent=”Mozilla 5″ 192.168.1.121
 
-## HTTP pipelining
-nmap -p80 –script http-methods –script-args http.pipeline=25 192.168.1.121
+### HTTP pipelining
+     root@hostname: ~/ nmap -p80 -script http-methods -script-args http.pipeline=25 192.168.1.121
 
-## HTTP-Proxy scanning with Nmap:
-nmap –script http-open-proxy -p8080 192.168.1.12
+### HTTP-Proxy scanning with Nmap:
+     root@hostname: ~/ nmap -script http-open-proxy -p8080 192.168.1.12
 
-## Different pattern:
-#### We may use a different pattern by a specified URL to target for scanning. It can be done by a specified NSE Script. Follow the below command:
- nmap –script http-open-proxy –script-args http-open-proxy.url=http://whatsmyip.org,http-open-.pattern=”Your IP address is” -p8080 192.168.1.12
+### Different pattern:
+###### We may use a different pattern by a specified URL to target for scanning. It can be done by a specified NSE Script. Follow the below command:
+     root@hostname: ~/  nmap -script http-open-proxy -script-args http-open-proxy.url=http://whatsmyip.org,http-open-.pattern=”Your IP address is” -p8080 192.168.1.12
 
-## Discovering interesting files and directories on admin accounts:
-nmap –script http-enum -p80 192.168.1.12
+### Discovering interesting files and directories on admin accounts:
+     root@hostname: ~/ nmap -script http-enum -p80 192.168.1.12
 
-## Discovering LUA scripts
-nmap --script http-enum http-enum.displayall -p80 — 192.168.1.12
+### Discovering LUA scripts
+     root@hostname: ~/ nmap --script http-enum http-enum.displayall -p80 — 192.168.1.12
 
+### Check what http methods is supported:
+     root@hostname: ~/ nmap -p80 -script http-methods -script-args http.pipeline=25 192.168.1.1
 
+     PORT   STATE SERVICE
+     80/tcp open  http
+     | http-methods: 
+     |_  Supported Methods: GET HEAD POST
+     MAC Address: E1:B0:E1:B2:71:61 (Technicolor)
 
 
 
 
 
 
-## Brute forcing HTTP authentication:
-## Many home routers, IP webcams, and even web applications still rely on HTTP authentication these days, and penetration testers need to try a word list of weak passwords to make sure the system or user accounts are safe. Now, thanks to the NSE script http-brute, we can perform robust dictionary attacks against HTTPAuth protected resources. See below commands:
-nmap -p80 –script http-brute –script-args http-brute.path=/admin/ 192.168.1.12
 
-## The script http-brute depends on the NSE libraries unpwdb and brute. These libraries have several script arguments that can be used to tune the auditing for our brute force password. To use different username and password lists, set the arguments userdb and passdb:
-nmap -p80 –script http-brute –script-args userdb=/var/usernames.txt,passdb=/var/passwords.txt 192.168.1.12
 
 
-
-
-
-
-
-
-
-#### ADD LATER
-
-
-
-nmap –script http-brute –script-args brute.mode=creds,brute.credfile=./creds.txt 192.168.1.12
-mod_userdir Pentesting:
-
-Apache’s module UserDir provides access to the user directories by using URIs with the syntax /~username/. With Nmap we can perform dictionary attacks and determine a list of valid usernames on the web server. To try to enumerate valid users in a web server with mod_userdir; use Nmap with these
-
-arguments:
-
-nmap -p80 –script http-userdir-enum 192.168.1.12
-
-
-HTTP User Agent
-
-There are some packet filtering products that block requests made using Nmap’s default HTTP User Agent. You can use a different User Agent value by setting the argument http.
-
-useragent:
-
-nmap -p80 –script http-brute –script-args http.useragent=”Mozilla 42″ 192.168.1.12
-
-HTTP pipelining
-
-Some web servers allow the encapsulation of more than one HTTP request in a single packet. This may speed up the execution of an NSE HTTP script, and it is recommended that it is used if the web server supports it. The HTTP library, by default, tries to pipeline 40 requests and auto adjusts that number according to the traffic conditions, based on the Keep-Alive header.
-
-nmap -p80 –script http-methods –script-args http.pipeline=25 192.168.1.12
-
-Testing for Default credentials:
-
-Often default credentials are found in the web applications.NSE scripts made easy to find the vulnerable application.
-
-nmap -p80 –script http-default-accounts 192.168.1.12
-
-The script detects web applications by looking at known paths and initiating a login
-
-routine using the stored, default credentials. It depends on a fingerprint file located at /
-
-nselib/data/http-default-accounts.nse
-
-WordPress Auditing:
-
-To find accounts with weak passwords in WordPress installations, use the following Nmap command:
-
-$ nmap -p80 –script http-wordpress-brute 192.168.1.12
-
-To set the number of threads, use the script argument http-wordpress-brute.threads:
-
-$ nmap -p80 –script http-wordpress-brute –script-args http-wordpressbrute.
-threads=5 192.168.1.12
-
-If the server has virtual hosting, set the host field by using the argument http-wordpressbrute.
-
-hostname:
-
-nmap -p80 –script http-wordpress-brute –script-args http-
-wordpressbrute.hostname=”ahostname.wordpress.com” 192.168.1.12
-
-To set a different login URI, use the argument http-wordpress-brute.uri:
-
-$ nmap -p80 –script http-wordpress-brute –script-args http-wordpressbrute.
-uri=”/hidden-wp-login.php” 192.168.1.12
-
-To change the name of the POST variable that stores the usernames and passwords, set the arguments http-wordpress-brute.uservar and http-wordpress-brute.passvar:
-
-$ nmap -p80 –script http-wordpress-brute –script-args http-wordpressbrute.uservar=usuario,http-wordpress-brute.passvar=pasguord 192.168.1.12
-
-Joomla Auditing:
-
-Joomla! is a very popular CMS that is used for many different purposes, including
-
-e-commerce. Detecting user accounts with weak passwords is a common task for penetration
-
-testers, and Nmap helps with that by using the NSE script http-joomla-brute.
-
-nmap -p80 –script http-joomla-brute 192.168.1.12
-
-NB: the same method for WordPress will apply to Joomla
-
-Detecting Web Application Firewall:
-
-Like a firewall app, WAF can also be used by the server for protecting against malicious attacks. Web servers are often protected by packet filtering systems that drop or redirect suspected malicious packets. Web penetration testers benefit from knowing that there is a traffic filtering system between them and the target application. If that is the case, they can try more rare or stealthy techniques to try to bypass the Web Application Firewall (WAF) or Intrusion Prevention System (IPS). It also helps them to determine if a vulnerability is
-
-actually exploitable in the current environment.
-
-To detect a Web Application Firewall or Intrusion Prevention System:
-
-nmap p80 –script http-waf-detect 192.168.1.12-
-
-As we can see, there is a firewall mod_security which throws an error:
-
-To detect changes in the response body, use the argument http-waf-detect. detectBodyChanges. I recommend that you enable it when dealing with pages with little dynamic content:
-
-nmap -p80 –script http-waf-detect –script-args=”http-waf-detect.detectBodyChanges” 192.168.1.12
-
-To include more attack payloads, use the script argument http-waf-detect.aggro. This mode generates more HTTP requests but can also trigger more products:
-
-nmap -p80 –script http-waf-detect –script-args=”http-waf-detect.aggro” 192.168.1.12
-
-HTTP User Agent
-
-There are some packet filtering products that block requests made using Nmap’s default HTTP User Agent. You can use a different User Agent value by setting the argument http.useragent:
-
-nmap -p80 –script http-waf-detect –script-args http.useragent=”Mozilla 42″ 192.168.1.12
-
-HTTP pipelining
-
-Some web servers allow the encapsulation of more than one HTTP request in a single packet. This may speed up the execution of an NSE HTTP script, and it is recommended that it is used if the web server supports it. The HTTP library, by default, tries to pipeline 40 requests and automatically adjusts that number according to the traffic conditions, based on the Keep-Alive header.
-
-$ nmap -p80 –script http-methods –script-args http.pipeline=25 192.168.1.12
-
-Additionally, you can use the argument http.max-pipeline to set the maximum number of HTTP requests to be added to the pipeline. If the script parameter http.pipeline is set, this argument will be ignored:
-
-$.nmap -p80 –script http-methods –script-args http.max-pipeline=10 192.168.1.12
-
-Detecting XST Vulnerabilities:
-
-Cross Site Tracing (XST) vulnerabilities are caused by the existence of Cross Site Scripting vulnerabilities (XSS) in web servers where the HTTP method TRACE is enabled. This technique is mainly used to bypass cookie restrictions imposed by the directive httpOnly. Pen testers can save time by using Nmap to quickly determine if the web server has the method TRACE enabled.
-
-nmap -p80 –script http-methods,http-trace –script-args http-methods.retest 192.168.1.12
-
-Detecting XSS Vulnerabilities:
-
-XSS or cross site scripting is a well known attack where an attacker can execute JavaScript. Cross Site Scripting vulnerabilities allow attackers to spoof content, steal user cookies, and even execute malicious code on the user’s browsers. There are even advanced exploitation frameworks such as Beef that allow attackers to perform complex attacks through JavaScript hooks. Web pen testers can use Nmap to discover these vulnerabilities in web servers in an automated manner. For that, Nmap has a solution, which is NSE.
-
-nmap -p80 –script http-unsafe-output-escaping 192.168.1.12
-
-The script http-unsafe-output-escaping was written by Martin Holst Swende, and it spiders a web server to detect the possible problems with the way web applications return output based on user input. The script inserts the following payload into all the parameters it finds:
-
-ghz%3Ehzx%22zxc%27xcv
-
-The payload shown above is designed to detect the characters > ” ‘, which could cause Cross Site Scripting vulnerabilities. The official documentation of the scripts http-unsafe-output-escaping and httpphpself-xss can be found at the following URLs:
-
-http://nmap.org/nsedoc/scripts/http-phpself-xss.html
-
-http://nmap.org/nsedoc/scripts/http-unsafe-output-escaping.html
-
-Detecting SQL Injection:
-
-SQL injection vulnerabilities are caused by the lack of sanitation of user input, and they allow attackers to execute DBMS queries that could compromise the entire system.
-
-To scan a web server looking for files vulnerable to SQL injection by using Nmap, use the following command:
-
-nmap -p80 –script http-sql-injection 192.168.1.12
-
-The httpspider library behavior can be configured via library arguments. By default, it uses pretty conservative values to save resources, but during a comprehensive test, we need to tweak several of them to achieve optimum results. For example, the library will only crawl 20 pages by default, but we can set the argument httpspider.maxpagecount accordingly for bigger sites, as shown in the following command:
-
-nmap -p80 –script http-sql-injection –script-args httpspider.maxpagecount=200 192.168.1.12
-
-Another interesting argument is httpspider.withinhost, which limits the web crawler to a given host. This is turned on by default, but if you need to test a collection of web applications linked to each other, you could use the following command:
-
-nmap -p80 –script http-sql-injection –script-args httpspider.withinhost=false 192.168.1.12
-
-The official documentation for the library can be found at
-
-http://nmap.org/nsedoc/lib/httpspider.html
-
-HTTP User Agent
-
-There are some packet filtering products that block requests made using Nmap’s default HTTP User Agent. We can use a different User Agent value by setting the argument http.useragent:
-
-nmap -p80 –script http-sql-injection –script-args http.useragent=”Mozilla 42″ 192.168.1.12
-
-HTTP pipelining
-
-Some web servers allow the encapsulation of more than one HTTP request in a single packet. This may speed up the execution of an NSE HTTP script, and it is recommended that this is used if the web server supports it. The HTTP library, by default, tries to pipeline 40 requests and automatically adjusts that number according to the traffic conditions, based on the Keep-Alive header.
-
-nmap -p80 –script http-sql-injection –script-args http.pipeline=25 192.168.1.12
-
-N.B: there are some examples for which a screenshot is unavailable because it’s impossible for everything to be put here. My recommendation is for all readers to try all commands and let me know if any problem occurs. There are lots of NSE scripts available for pen testing. The above are a few examples. All the scripts will be discussed in the upcoming installments.
-
-CYBER THREAT DISCLOSURE POLICY:
-
-The above scanning /malicious activity is done by the proper permission of the respective website domain owner. It is recommended to not use these skills for attacking/hacking a website.
-
-# REFERENCES - GOOD WIKIS
-
-https://resources.infosecinstitute.com/nmap-cheat-sheet-discovery-exploits-part-3-gathering-additional-information-host-network-2/#article
