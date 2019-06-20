@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # NMAP BRUTEFORCING
 # afp-brute                              
 ### Performs password guessing against Apple Filing Protocol (AFP).
