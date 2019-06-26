@@ -77,17 +77,19 @@ As a pentester, we must understand and know what this extremely powerful tool is
      root@hostname: ~/ nmap --osscan-guess: Guess OS more aggressively
            
 ### TIMING AND PERFORMANCE:
+
 ####### _Options which take <time> are in seconds, or append 'ms' (milliseconds)_
 ####### _'s' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m)_
-     root@hostname: ~/ nmap -T<0-5>: Set timing template (higher is faster)
-     root@hostname: ~/ nmap --min-hostgroup/max-hostgroup <size>: Parallel host scan group sizes
-     root@hostname: ~/ nmap --min-parallelism/max-parallelism <numprobes>: Probe parallelization
-     root@hostname: ~/ nmap --min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>: Specifies
-     root@hostname: ~/ nmap --max-retries <tries>: Caps number of port scan probe retransmissions.
-     root@hostname: ~/ nmap --host-timeout <time>: Give up on target after this long
-     root@hostname: ~/ nmap --scan-delay/--max-scan-delay <time>: Adjust delay between probes
-     root@hostname: ~/ nmap --min-rate <number>: Send packets no slower than <number> per second
-     root@hostname: ~/ nmap --max-rate <number>: Send packets no faster than <number> per second
+ 
+    root@hostname: ~/ nmap -T<0-5>: Set timing template (higher is faster)
+    root@hostname: ~/ nmap --min-hostgroup/max-hostgroup <size>: Parallel host scan group sizes
+    root@hostname: ~/ nmap --min-parallelism/max-parallelism <numprobes>: Probe parallelization
+    root@hostname: ~/ nmap --min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>: Specifies
+    root@hostname: ~/ nmap --max-retries <tries>: Caps number of port scan probe retransmissions.
+    root@hostname: ~/ nmap --host-timeout <time>: Give up on target after this long
+    root@hostname: ~/ nmap --scan-delay/--max-scan-delay <time>: Adjust delay between probes
+    root@hostname: ~/ nmap --min-rate <number>: Send packets no slower than <number> per second
+    root@hostname: ~/ nmap --max-rate <number>: Send packets no faster than <number> per second
 
 ### FIREWALL/IDS EVASION AND SPOOFING:
 
