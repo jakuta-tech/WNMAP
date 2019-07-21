@@ -25,16 +25,6 @@ As a pentester, we must understand and know what this extremely powerful tool is
      root@hostname: ~/ nmap --system-dns: Use OS's DNS resolver
      root@hostname: ~/ nmap --traceroute: Trace hop path to each host
 
-#### SCAN TECHNIQUES:
-     root@hostname: ~/ nmap -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
-     root@hostname: ~/ nmap -sU: UDP Scan
-     root@hostname: ~/ nmap -sN/sF/sX: TCP Null, FIN, and Xmas scans
-     root@hostname: ~/ nmap --scanflags <flags>: Customize TCP scan flags
-     root@hostname: ~/ nmap -sI <zombie host[:probeport]>: Idle scan
-     root@hostname: ~/ nmap -sY/sZ: SCTP INIT/COOKIE-ECHO scans
-     root@hostname: ~/ nmap -sO: IP protocol scan
-     root@hostname: ~/ nmap -b <FTP relay host>: FTP bounce scan
-
 ### SCAN TECHNIQUES:
      root@hostname: ~/ nmap -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
      root@hostname: ~/ nmap -sU: UDP Scan
@@ -53,7 +43,7 @@ As a pentester, we must understand and know what this extremely powerful tool is
      root@hostname: ~/ nmap --top-ports <number>: Scan <number> most common ports
      root@hostname: ~/ nmap --port-ratio <ratio>: Scan ports more common than <ratio>
 
-#### SERVICE/VERSION DETECTION:
+### SERVICE/VERSION DETECTION:
      root@hostname: ~/ nmap -sV: Probe open ports to determine service/version info
      root@hostname: ~/ nmap --version-intensity <level>: Set from 0 (light) to 9 (try all probes)
      root@hostname: ~/ nmap --version-light: Limit to most likely probes (intensity 2)
@@ -146,27 +136,40 @@ As a pentester, we must understand and know what this extremely powerful tool is
 
 
 #### For openSUSE Leap 42.3 run the following as root:
+```
 zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_42.3/network:utilities.repo
+```
 
 #### For openSUSE Leap 15.1 run the following as root:
+```
 zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_15.1/network:utilities.repo
+```
 
 #### For openSUSE Leap 15.0 run the following as root:
+```
 zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_15.0/network:utilities.repo
+```
 
 #### For openSUSE Factory PowerPC run the following as root:
+```
 zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Factory_PowerPC/network:utilities.repo
+```
 
 #### For openSUSE Factory ARM run the following as root:
-
+```
 zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Factory_ARM/network:utilities.repo
+```
 
 #### For openSUSE Factory run the following as root:
+```
 zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Factory/network:utilities.repo
+```
 
-#### And then: 
+#### And then:
+```
 zypper refresh
 zypper install nmap
+```
 
 ### After installation, get all scripts by below command:
 
@@ -563,7 +566,7 @@ _Performs Brute-Force password auditing against IBM Informix Dynamic Server_
 
 Summary
 -------
-  x The Driver class contains the driver implementation used by the brute
+  * The Driver class contains the driver implementation used by the brute
     library
 
 
@@ -1223,9 +1226,9 @@ _Performs Brute-Force password auditing against Subversion source code control s
 
 Summary
 -------
-  x The svn class contains the code needed to perform CRAM-MD5
+  * The svn class contains the code needed to perform CRAM-MD5
     authentication
-  x The Driver class contains the driver implementation used by the brute
+  * The Driver class contains the driver implementation used by the brute
     library
 
 
@@ -1328,56 +1331,55 @@ _Performs Brute-Force password auditing against XMPP (Jabber) instant messaging 
      root@hostname: ~/ # nmap -sP 192.168.1.*
 
 #### Quick scan
-     root@hostname: ~/ # nmap -Pn dhound_io                                                                                                                   
+     root@hostname: ~/ # nmap -Pn dhound_io
 
 #### Fast Scan
      root@hostname: ~/ # nmap -T4 -F 192.168.0.164
 
 #### Full TCP Port scan using with service version detection
-     root@hostname: ~/ # nmap -p 1-65535 -Pn -sV -sS -T4 dhound_io       
+     root@hostname: ~/ # nmap -p 1-65535 -Pn -sV -sS -T4 dhound_io
 
 # Get a list of ssh servers on the local subnet
 nmap -p 22 open -sV 192.168.2.0/24
 
-
 #### Scan particular ports
-     root@hostname: ~/ # nmap -Pn -p 22,80,443 dhound_io   
+     root@hostname: ~/ # nmap -Pn -p 22,80,443 dhound_io
 
 #### Find linux devices in local network                                                             
-     root@hostname: ~/ # nmap -p 22 --open -sV 192.168.1.0/24                                                                                                
+     root@hostname: ~/ # nmap -p 22 --open -sV 192.168.1.0/24
 
 #### Trace trafic
-     root@hostname: ~/ # nmap --traceroute -p 80 dhound_io                                                                                                   
+     root@hostname: ~/ # nmap --traceroute -p 80 dhound_io
 
 #### Trace trafic with Geo resolving
-     root@hostname: ~/ # nmap --traceroute --script traceroute-geolocation_nse -p 80 dhound_io                                                                
+     root@hostname: ~/ # nmap --traceroute --script traceroute-geolocation_nse -p 80 dhound_io
 
 #### WHOIS ISP, Country, Company
-     root@hostname: ~/ # nmap --script=asn-query dhound_io                                                                                                    
+     root@hostname: ~/ # nmap --script=asn-query dhound_io
 
 #### Get SSL Certificate
-     root@hostname: ~/ # nmap --script ssl-cert -p 443 -Pn dhound_io                                                                                          
+     root@hostname: ~/ # nmap --script ssl-cert -p 443 -Pn dhound_io
 
 #### Test SSL Ciphers
-     root@hostname: ~/ # nmap --script ssl-enum-ciphers -p 443 dhound_io                                                                                      
+     root@hostname: ~/ # nmap --script ssl-enum-ciphers -p 443 dhound_io
 
 #### Ftp Brute-Force
-     root@hostname: ~/ # nmap --script ftp - Brute-Force --script-args userdb=users_txt,passdb=passwords_txt -p 21 -Pn dhound_io                                      
+     root@hostname: ~/ # nmap --script ftp - Brute-Force --script-args userdb=users_txt,passdb=passwords_txt -p 21 -Pn dhound_io
 
 #### HTTP Basic Authentication Brute-Force
-     root@hostname: ~/ # nmap --script http - Brute-Force -script-args http - Brute-Force_path=/evifile-bb-demo,userdb=users_txt,passdb=passwords_txt -p 80 -Pn dhound_io     
+     root@hostname: ~/ # nmap --script http - Brute-Force -script-args http - Brute-Force_path=/evifile-bb-demo,userdb=users_txt,passdb=passwords_txt -p 80 -Pn dhound_io
 
 #### Find vulnerabilities in safe mode
-     root@hostname: ~/ # nmap --script default,safe -Pn dhound_io                                                                                             
+     root@hostname: ~/ # nmap --script default,safe -Pn dhound_io
 
 #### Find vulnerabilities in unsafe mode
-     root@hostname: ~/ # nmap --script vuln -Pn dhound_io                                                                                                     
+     root@hostname: ~/ # nmap --script vuln -Pn dhound_io
 
 #### Run DDos attack
-     root@hostname: ~/ # nmap --script dos -Pn dhound_io                                                                                                      
+     root@hostname: ~/ # nmap --script dos -Pn dhound_io
 
 #### Exploit detected vulnerabilities
-     root@hostname: ~/ #      root@hostname: ~/ # nmap --script exploit -Pn dhound_io                                                                                                  
+     root@hostname: ~/ # nmap --script exploit -Pn dhound_io
 
 #### Find unused IPs on a given subnet
      root@hostname: ~/ # nmap -sP <subnet>.* | egrep -o '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > results.txt ; for IP in {1..254} ; do echo "<subnet>.${IP}" ; done >> results.txt ; cat results.txt | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4 | uniq -u
@@ -1406,7 +1408,7 @@ nmap -p 22 open -sV 192.168.2.0/24
 #### List of reverse DNS records for a subnet
      root@hostname: ~/ # nmap -R -sL 209.85.229.99/27 | awk '{if($3=="not")print"("$2") no PTR";else print$3" is "$2}' | grep '('
 
-#### list all opened ports on host
+#### List all opened ports on host
      root@hostname: ~/ # nmap -p 1-65535 open localhost
 
 #### Get list of servers with a specific port open
@@ -1427,7 +1429,7 @@ nmap -p 22 open -sV 192.168.2.0/24
 #### Getting a list of active addresses in your own network.
      root@hostname: ~/ # nmap -n -sP -oG - 10.10.10.*/32 | grep ": Up" | cut -d' ' -f2
 
-#### script broadcast-pppoe-discover
+#### Script broadcast-pppoe-discover
      root@hostname: ~/ # nmap -T4 script broadcast-pppoe-discover 192.168.122.0/24
 
 #### nmap IP block and autogenerate comprehensive Nagios service checks
@@ -1436,9 +1438,8 @@ nmap -p 22 open -sV 192.168.2.0/24
 #### The NMAP command you can use scan for the Conficker virus on your LAN
      root@hostname: ~/ # nmap -PN -T4 -p139,445 -n -v script=smb-check-vulns script-args safe=1 192.168.0.1-254
 
-#### nmap  discorvery network on port 80
+#### nmap discorvery network on port 80
      root@hostname: ~/ # nmap -p 80 -T5 -n -min-parallelism 100 open 192.168.1.0/24
-
 
 #### nmap all my hosts in EC2
      root@hostname: ~/ # nmap -P0 -sV `aws output json ec2 describe-addresses | jq -r '.Addresses[].PublicIp'` | tee /dev/shm/nmap-output.txt
@@ -1449,18 +1450,17 @@ nmap -p 22 open -sV 192.168.2.0/24
 #### Nmap list IPs in a network and saves in a txt
      root@hostname: ~/ # nmap -sP 192.168.1.0/24 | grep "Nmap scan report for"| cut -d' ' -f 5  > ips.txt
 
-#### count of down available ips
+#### Count of down available ips
      root@hostname: ~/ # nmap -v -sP 192.168.10.0/24 | grep down | wc -l
 
-####  Locate random web servers for browsing.
+#### Locate random web servers for browsing.
      root@hostname: ~/ # nmap -Pn -sS -p 80 -iR 0 --open to
 
 
 
+#### Network interface and routing summary
 
-#### network interface and routing summary
-
-     root@hostname: ~/ ####      wuseman@thinkpad ~ $ nmap  --iflist
+     root@hostname: ~/ # nmap  --iflist
 
      Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-20 19:11 -00
      ************************INTERFACES************************
@@ -1497,7 +1497,6 @@ nmap -p 22 open -sV 192.168.2.0/24
      root@hostname: ~/ # nmap -sS -sU -PN -p 1-65535 192.168.1.121
 
 #### TCP Window Scan
-
      root@hostname: ~/ # nmap -sW 192.168.1.121
 
 #### TCP Maimon Scan
@@ -1510,7 +1509,6 @@ nmap -p 22 open -sV 192.168.2.0/24
      root@hostname: ~/ # nmap -sI Zombie:113 -Pn -p20-80,110-180 -r -packet-trace -v 192.168.1.121
 
 #### FTP Bounce Scan
-
      root@hostname: ~/ # nmap -T0 -b username:password@ftpserver.tld:21 victim.tld 192.168.1.121
 
 #### Fragmentation
