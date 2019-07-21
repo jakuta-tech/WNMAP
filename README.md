@@ -68,8 +68,8 @@ As a pentester, we must understand and know what this extremely powerful tool is
            
 ### TIMING AND PERFORMANCE:
 
-####### _Options which take <time> are in seconds, or append 'ms' (milliseconds)_
-####### _'s' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m)_
+##### _Options which take <time> are in seconds, or append 'ms' (milliseconds)_
+##### _'s' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m)_
  
     root@hostname: ~/ nmap -T<0-5>: Set timing template (higher is faster)
     root@hostname: ~/ nmap --min-hostgroup/max-hostgroup <size>: Parallel host scan group sizes
