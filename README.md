@@ -1,16 +1,20 @@
-# Nmap
+# nmap
 
 As a pentester, we must understand and know what this extremely powerful tool is capable of, it can do SO Much more then just scanning ports ;-)
 
 ### After you installed nmap go get all scripts by below command:
 
-     nmap --script-updatedb
+```console
+nmap --script-updatedb
+```
 
 ### AFP - Brute-Force                              
 
 _Performs password guessing against Apple Filing Protocol (AFP)_
      
-     nmap -p 548 --script afp-brute 192.168.1.12
+```console
+nmap -p 548 --script afp-brute 192.168.1.12
+```
 
      |PORT    STATE SERVICE
      |548/tcp open  afp
@@ -21,7 +25,9 @@ _Performs password guessing against Apple Filing Protocol (AFP)_
 
 _Performs brute force passwords auditing against the Apache JServ protocol. The Apache JServ Protocol is commonly used by web servers to communicate with back-end Java application server containers_
 
-     nmap -p 8009 192.168.1.12 --script ajp-brute
+```console
+nmap -p 8009 192.168.1.12 --script ajp-brute
+```
 
      |PORT     STATE SERVICE
      |8009/tcp open  ajp13
@@ -33,7 +39,9 @@ _Performs brute force passwords auditing against the Apache JServ protocol. The 
 
 ### Backorifice - Brute-Force                         
      
-     nmap -sU --script backorifice-brute 192.168.1.12 --script-args backorifice-brute. 
+```console
+nmap -sU --script backorifice-brute 192.168.1.12 --script-args backorifice-brute. 
+```
 
      |PORT       STATE  SERVICE
      |31337/udp  open   BackOrifice
@@ -48,7 +56,9 @@ _Performs brute force passwords auditing against the Apache JServ protocol. The 
 
 _Performs Brute-Force password auditing against the Cassandra database_
      
-     nmap -p 9160 192.168.1.12 --script=cassandra-brute
+```console
+nmap -p 9160 192.168.1.12 --script=cassandra-brute
+```
 
      |PORT     STATE SERVICE VERSION
      |9160/tcp open  apani1?
@@ -64,7 +74,9 @@ _Performs Brute-Force password auditing against the Cassandra database_
 
 _Attempts to guess valid credentials for the Citrix PN Web Agent XML Service_ The XML service authenticates against the local Windows server or the Active Directory_
      
-     nmap --script=citrix - Brute-Force-xml --script-args=userdb=<userdb>,passdb=<passdb>,ntdomain=<domain> -p 80,443,8080 192.168.1.12
+```console
+nmap --script=citrix - Brute-Force-xml --script-args=userdb=<userdb>,passdb=<passdb>,ntdomain=<domain> -p 80,443,8080 192.168.1.12
+```
 
      |PORT     STATE SERVICE    REASON
      |8080/tcp open  http-proxy syn-ack
@@ -89,7 +101,9 @@ If you are attacking public ip, make sure to provide your public ip to the scrip
 
 _Performs Brute-Force password auditing against CVS pserver authentication_
      
-     nmap -p 2401 --script cvs-brute 192.168.1.12
+```console
+nmap -p 2401 --script cvs-brute 192.168.1.12
+```
 
      |2401/tcp open  cvspserver syn-ack
      | cvs-brute:
@@ -105,7 +119,9 @@ _Performs Brute-Force password auditing against CVS pserver authentication_
 
 _Attempts to guess the name of the CVS repositories hosted on the remote server_ With knowledge of the correct repository name, usernames and passwords can be guessed_
      
-     nmap -p 2401 --script cvs-brute-repository 192.168.1.12
+```console
+nmap -p 2401 --script cvs-brute-repository 192.168.1.12
+```
 
      |PORT     STATE SERVICE    REASON
      |2401/tcp open  cvspserver syn-ack
@@ -122,7 +138,9 @@ _Attempts to guess the name of the CVS repositories hosted on the remote server_
 
 _Performs Brute-Force password auditing against the DelugeRPC daemon_
      
-     nmap --script deluge-rpc-brute -p 58846 192.168.1.12
+```console
+nmap --script deluge-rpc-brute -p 58846 192.168.1.12
+```
 
      |PORT      STATE SERVICE REASON  TTL
      |58846/tcp open  unknown syn-ack 0
@@ -138,7 +156,9 @@ _Performs Brute-Force password auditing against the DelugeRPC daemon_
 
 _Performs Brute-Force password auditing against the Lotus Domino Console_
      
-     nmap --script domcon-brute -p 2050 192.168.1.12
+```console
+nmap --script domcon-brute -p 2050 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |2050/tcp open  unknown syn-ack
@@ -152,7 +172,9 @@ _Performs Brute-Force password auditing against the Lotus Domino Console_
 
 _Performs Brute-Force password auditing against an iPhoto Library_
      
-     nmap --script dpap-brute -p 8770 192.168.1.12
+```console
+nmap --script dpap-brute -p 8770 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |8770/tcp open  apple-iphoto syn-ack
@@ -167,7 +189,9 @@ _Performs Brute-Force password auditing against an iPhoto Library_
 
 _Performs password guessing against databases sup     |PORTing the IBM DB2 protocol such as Informix, DB2 and Derby_
      
-     nmap -p 50000 --script drda-brute 192.168.1.12
+```console
+nmap -p 50000 --script drda-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |50000/tcp open  drda
@@ -181,7 +205,9 @@ _Performs password guessing against databases sup     |PORTing the IBM DB2 proto
 
 _Performs Brute-Force password auditing against FTP servers_
      
-     nmap --script ftp-brute -p 21 192.168.1.12
+```console
+nmap --script ftp-brute -p 21 192.168.1.12
+```
 
      |PORT   STATE SERVICE
      |21/tcp open  ftp
@@ -196,7 +222,9 @@ _Performs Brute-Force password auditing against FTP servers_
 
 _Performs Brute-Force password auditing against http basic, digest and ntlm authentication_
      
-     nmap --script http-brute -p 80 192.168.1.12
+```console
+nmap --script http-brute -p 80 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |80/tcp   open  http    syn-ack
@@ -211,7 +239,9 @@ _Performs Brute-Force password auditing against http basic, digest and ntlm auth
 
 _Performs Brute-Force password auditing against http form-based authentication_
      
-     nmap --script http-form-brute -p 80 192.168.1.12
+```console
+nmap --script http-form-brute -p 80 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |80/tcp   open  http    syn-ack
@@ -226,7 +256,9 @@ _Performs Brute-Force password auditing against http form-based authentication_
 
 _Attempts to Brute-Force the 8_3 filenames (commonly known as short names) of files and directories in the root folder of vulnerable IIS servers_ This script is an implementation of the PoC "iis shortname scanner"_
      
-     nmap -p80 --script http-iis-short-name-brute 192.168.1.12
+```console
+nmap -p80 --script http-iis-short-name-brute 192.168.1.12
+```
 
      |PORT   STATE SERVICE
      |80/tcp open  http
@@ -258,7 +290,9 @@ _Attempts to Brute-Force the 8_3 filenames (commonly known as short names) of fi
 
 _Performs Brute-Force password auditing against Joomla web CMS installations_
      
-     nmap -sV --script http-joomla-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-joomla-brute.hostname=domain.com,http-joomla-brute.threads=3,brute.firstonly=true' 192.168.1.12
+```console
+nmap -sV --script http-joomla-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-joomla-brute.hostname=domain.com,http-joomla-brute.threads=3,brute.firstonly=true' 192.168.1.12
+```
 
 
      |PORT     STATE SERVICE REASON
@@ -275,7 +309,9 @@ _Performs Brute-Force password auditing against Joomla web CMS installations_
 
 _Performs Brute-Force password guessing against HTTP proxy servers_
      
-     nmap --script http-proxy-brute -p 8080 192.168.1.12
+```console
+nmap --script http-proxy-brute -p 8080 192.168.1.12
+```
 
      |PORT     STATE SERVICE
      |8080/tcp open  http-proxy
@@ -290,7 +326,9 @@ _Performs Brute-Force password guessing against HTTP proxy servers_
 
 _Performs Brute-Force password auditing against Wordpress CMS/blog installations_
      
-     nmap -sV --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com,http-wordpress-brute.threads=3,brute.firstonly=true' 192.168.1.12
+```console
+nmap -sV --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com,http-wordpress-brute.threads=3,brute.firstonly=true' 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |80/tcp   open  http    syn-ack
@@ -307,7 +345,9 @@ _Performs Brute-Force password auditing against Wordpress CMS/blog installations
 
 _Performs Brute-Force password auditing against the Asterisk IAX2 protocol_ Guessing fails when a large number of attempts is made due to the maxcallnumber limit (default 2048)_ In case your getting "ERROR: Too many retries, aborted ___" after a while, this is most likely what's happening_ In order to avoid this problem try: - reducing the size of your dictionary - use the brute delay option to introduce a delay between guesses - split the guessing up in chunks and wait for a while between them_   
 
-     nmap -sU -p 4569 192.168.1.12 --script iax2-brute
+```console
+nmap -sU -p 4569 192.168.1.12 --script iax2-brute
+```
 
      | PORT     STATE         SERVICE   
      |4569/udp open     |filtered unknown
@@ -324,7 +364,9 @@ _Performs Brute-Force password auditing against the Asterisk IAX2 protocol_ Gues
 
 _Performs Brute-Force password auditing against IMAP servers using either LOGIN, PLAIN, CRAM-MD5, DIGEST-MD5 or NTLM authentication_
      
-     nmap -p 143,993 --script imap-brute 192.168.1.12
+```console
+nmap -p 143,993 --script imap-brute 192.168.1.12
+```
 
      |PORT    STATE SERVICE REASON
      |143/tcp open  imap    syn-ack
@@ -342,7 +384,9 @@ _Performs Brute-Force password auditing against IMAP servers using either LOGIN,
 
 _Tests for the presence of the LibreOffice Impress Remote server_ Checks if a PIN is valid if provided and will bruteforce the PIN if requested_
      
-     nmap -p 1599 --script impress-remote-discover 192.168.1.12
+```console
+nmap -p 1599 --script impress-remote-discover 192.168.1.12
+```
 
      |PORT     STATE SERVICE        Version
      |1599/tcp open  impress-remote LibreOffice Impress remote 4.3.3.2
@@ -356,7 +400,9 @@ _Tests for the presence of the LibreOffice Impress Remote server_ Checks if a PI
 
 _Performs Brute-Force password auditing against IBM Informix Dynamic Server_
      
-     nmap --script informix-brute -p 9088 192.168.1.12
+```console
+nmap --script informix-brute -p 9088 192.168.1.12
+```
 
      |PORT     STATE SERVICE
      |9088/tcp open  unknown
@@ -371,7 +417,9 @@ _Performs Brute-Force password auditing against IBM Informix Dynamic Server_
 
 _Performs Brute-Force password auditing against IPMI RPC server_
      
-     nmap -sU --script ipmi-brute -p 623 192.168.1.12
+```console
+nmap -sU --script ipmi-brute -p 623 192.168.1.12
+```
 
      |PORT     STATE  SERVICE REASON
      |623/udp  open     |filtered  unknown
@@ -385,7 +433,9 @@ _Performs Brute-Force password auditing against IPMI RPC server_
 
 _Performs Brute-Force password auditing against IRC (Internet Relay Chat) servers_
      
-     nmap --script irc-brute -p 6667 192.168.1.12
+```console
+nmap --script irc-brute -p 6667 192.168.1.12
+```
 
      |PORT     STATE SERVICE
      |6667/tcp open  irc
@@ -402,7 +452,9 @@ _Performs Brute-Force password auditing against IRC (Internet Relay Chat) server
 
 _Performs Brute-Force password auditing against IRC (Internet Relay Chat) servers sup     |PORTing SASL authentication_
      
-     nmap --script irc-sasl-brute -p 6667 192.168.1.12
+```console
+nmap --script irc-sasl-brute -p 6667 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |6667/tcp open  irc     syn-ack
@@ -417,7 +469,9 @@ _Performs Brute-Force password auditing against IRC (Internet Relay Chat) server
 
 _Performs Brute-Force password auditing against iSCSI targets_
      
-     nmap -sV --script=iscsi-brute 192.168.1.12
+```console
+nmap -sV --script=iscsi-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE
      |3260/tcp open  iscsi   syn-ack
@@ -434,7 +488,9 @@ _Performs Brute-Force password auditing against iSCSI targets_
 
 _Attempts to brute-force LDAP authentication_ By default it uses the built-in username and password lists_ In order to use your own lists use the userdb and passdb script arguments_
      
-     nmap -p 389 --script ldap-brute --script-args ldap.base='"cn=users,dc=cqure,dc=net"' 192.168.1.12
+```console
+nmap -p 389 --script ldap-brute --script-args ldap.base='"cn=users,dc=cqure,dc=net"' 192.168.1.12
+```
 
      |389/tcp open  ldap
      | ldap-brute:
@@ -453,7 +509,9 @@ _Attempts to brute-force LDAP authentication_ By default it uses the built-in us
 
 _Attempts to enumerate Logical Units (LU) of TN3270E servers_
      
-     nmap --script lu-enum --script-args lulist=lus.txt,lu-enum.path="/home/dade/screenshots/" -p 23 -sV <targets>
+```console
+nmap --script lu-enum --script-args lulist=lus.txt,lu-enum.path="/home/dade/screenshots/" -p 23 -sV <targets>
+```
 
      |PORT     STATE SERVICE REASON  VERSION
      |23/tcp   open  tn3270  syn-ack IBM Telnet TN3270 (TN3270E)
@@ -469,7 +527,9 @@ _Attempts to enumerate Logical Units (LU) of TN3270E servers_
 
 _Performs Brute-Force password auditing against Couchbase Membase servers_
      
-     nmap -p 11211 --script membase-brute
+```console
+nmap -p 11211 --script membase-brute
+```
 
      |PORT      STATE SERVICE
      |11211/tcp open  unknown
@@ -484,7 +544,9 @@ _Performs Brute-Force password auditing against Couchbase Membase servers_
 
 _Performs Brute-Force password auditing against Mikrotik RouterOS devices with the API RouterOS interface enabled_
      
-     nmap -p8728 --script mikrotik-routeros-brute 192.168.1.12
+```console
+nmap -p8728 --script mikrotik-routeros-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |8728/tcp open  unknown syn-ack
@@ -501,7 +563,9 @@ _Performs Brute-Force password auditing against Mikrotik RouterOS devices with t
 
 _Performs Brute-Force password auditing against the RPA Tech Mobile Mouse servers_
      
-     nmap --script mmouse-brute -p 51010 192.168.1.12
+```console
+nmap --script mmouse-brute -p 51010 192.168.1.12
+```
 
      |PORT      STATE SERVICE
      |51010/tcp open  unknown
@@ -518,7 +582,9 @@ _Performs Brute-Force password auditing against the RPA Tech Mobile Mouse server
 
 _ Performs Brute-Force password auditing against the MongoDB database_
      
-     nmap -p 27017 192.168.1.12 --script mongodb-brute
+```console
+nmap -p 27017 192.168.1.12 --script mongodb-brute
+```
 
      |PORT      STATE SERVICE
      |27017/tcp open  mongodb
@@ -532,8 +598,12 @@ _ Performs Brute-Force password auditing against the MongoDB database_
 
 _Performs password guessing against Microsoft SQL Server (ms-sql)_ Works best in conjunction with the broadcast-ms-sql-discover script_
      
-     nmap -p 445 --script ms-sql-brute --script-args mssql.instance-all,userdb=customuser.txt,passdb=custompass.txt 192.168.1.12
-     nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt 192.168.1.12
+```console
+nmap -p 445 --script ms-sql-brute --script-args mssql.instance-all,userdb=customuser.txt,passdb=custompass.txt 192.168.1.12
+```
+```console
+nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      | ms-sql-brute:
@@ -553,7 +623,9 @@ _Performs password guessing against Microsoft SQL Server (ms-sql)_ Works best in
 
 _Performs password guessing against MySQL_
      
-     nmap --script=mysql-brute 192.168.1.12
+```console
+nmap --script=mysql-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |3306/tcp open  mysql
@@ -567,7 +639,9 @@ _Performs password guessing against MySQL_
 
 _Performs valid-user enumeration against MySQL server using a bug discovered and published by Kingcope (http://seclists_org/fulldisclosure/2012/Dec/9)_
      
-     nmap --script=mysql-enum 192.168.1.12
+```console
+nmap --script=mysql-enum 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |3306/tcp open  mysql   syn-ack
@@ -585,7 +659,9 @@ _Performs valid-user enumeration against MySQL server using a bug discovered and
 
 _Performs Brute-Force password auditing against a Nessus vulnerability scanning daemon using the XMLRPC protocol_
      
-     nmap -sV --script=nessus-xmlrpc-brute 192.168.1.12
+```console
+nmap -sV --script=nessus-xmlrpc-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |8834/tcp open  unknown syn-ack
@@ -601,7 +677,9 @@ _Performs Brute-Force password auditing against a Nessus vulnerability scanning 
 
 _Performs Brute-Force password auditing against the Netbus backdoor ("remote administration") service_
      
-     nmap -p 12345 --script netbus-brute 192.168.1.12
+```console
+nmap -p 12345 --script netbus-brute 192.168.1.12
+```
 
      |12345/tcp open  netbus
      |_netbus-brute: password123
@@ -610,7 +688,9 @@ _Performs Brute-Force password auditing against the Netbus backdoor ("remote adm
 
 _Performs Brute-Force password auditing against a Nexpose vulnerability scanner using the API 1_1_
      
-     nmap --script nexpose-brute -p 3780 192.168.1.12
+```console
+nmap --script nexpose-brute -p 3780 192.168.1.12
+```
 
      |PORT     STATE SERVICE     REASON  VERSION
      |3780/tcp open  ssl/nexpose syn-ack NeXpose NSC 0.6.4
@@ -625,8 +705,12 @@ _Performs Brute-Force password auditing against a Nexpose vulnerability scanner 
 
 _z/OS JES Network Job Entry (NJE) target node name Brute-Force_
      
-     nmap -sV --script=nje-node-brute 192.168.1.12
-     nmap --script=nje-node-brute --script-args=hostlist=nje_names.txt -p 175 192.168.1.12
+```console
+nmap -sV --script=nje-node-brute 192.168.1.12
+```
+```console
+nmap --script=nje-node-brute --script-args=hostlist=nje_names.txt -p 175 192.168.1.12
+```
 
      |PORT    STATE SERVICE REASON
      |175/tcp open  nje     syn-ack
@@ -639,8 +723,12 @@ _z/OS JES Network Job Entry (NJE) target node name Brute-Force_
 
 _z/OS JES Network Job Entry (NJE) 'I record' password Brute-Forcer_
      
-     nmap -sV --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS' 192.168.1.12
-     nmap --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS',sleep=5 -p 175 192.168.1.12
+```console
+nmap -sV --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS' 192.168.1.12
+```
+```console
+nmap --script=nje-pass-brute --script-args=ohost='POTATO',rhost='CACTUS',sleep=5 -p 175 192.168.1.12
+```
 
      |PORT    STATE SERVICE VERSION
      |175/tcp open  nje     IBM Network Job Entry (JES)
@@ -653,7 +741,9 @@ _z/OS JES Network Job Entry (NJE) 'I record' password Brute-Forcer_
 
 _Performs Brute-Force password auditing against an Nping Echo service_
      
-     nmap -p 9929 --script nping-brute 192.168.1.12
+```console
+nmap -p 9929 --script nping-brute 192.168.1.12
+```
 
      |9929/tcp open  nping-echo
      | nping-brute:
@@ -666,7 +756,9 @@ _Performs Brute-Force password auditing against an Nping Echo service_
 
 _Performs Brute-Force password auditing against the OpenVAS manager using OMPv2_
      
-     nmap -p 9390 --script omp2-brute 192.168.1.12
+```console
+nmap -p 9390 --script omp2-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |9390/tcp open  openvas syn-ack
@@ -680,7 +772,9 @@ _Performs Brute-Force password auditing against the OpenVAS manager using OMPv2_
 
 _Performs Brute-Force password auditing against a OpenVAS vulnerability scanner daemon using the OTP 1_0 protocol_
      
-     nmap -sV --script=openvas-otp-brute 192.168.1.12
+```console
+nmap -sV --script=openvas-otp-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE    REASON  VERSION
      |9391/tcp open  ssl/openvas syn-ack
@@ -694,7 +788,9 @@ _Performs Brute-Force password auditing against a OpenVAS vulnerability scanner 
 
 _Performs Brute-Force password auditing against Oracle servers_
      
-     nmap --script oracle-brute -p 1521 --script-args oracle-brute.sid=ORCL 192.168.1.12
+```console
+nmap --script oracle-brute -p 1521 --script-args oracle-brute.sid=ORCL 192.168.1.12
+```
 
      |PORT     STATE  SERVICE REASON
      |1521/tcp open  oracle  syn-ack
@@ -711,7 +807,9 @@ _Performs Brute-Force password auditing against Oracle servers_
 
 _Exploits the CVE-2012-3137 vulnerability, a weakness in Oracle's O5LOGIN authentication scheme_ The vulnerability exists in Oracle 11g R1/R2 and allows linking the session key to a password hash_ When initiating an authentication attempt as a valid user the server will respond with a session key and salt_ Once received the script will disconnect the connection thereby not recording the login attempt_ The session key and salt can then be used to Brute-Force the users password_
      
-     nmap --script oracle-brute-stealth -p 1521 --script-args oracle-brute-stealth.sid=ORCL 192.168.1.12
+```console
+nmap --script oracle-brute-stealth -p 1521 --script-args oracle-brute-stealth.sid=ORCL 192.168.1.12
+```
 
      |PORT     STATE  SERVICE REASON
      |1521/tcp open  oracle  syn-ack
@@ -727,8 +825,12 @@ _Exploits the CVE-2012-3137 vulnerability, a weakness in Oracle's O5LOGIN authen
 
 _Guesses Oracle instance/SID names against the TNS-listener_
      
-     nmap --script=oracle-sid-brute --script-args=oraclesids=/path/to/sidfile -p 1521-1560 192.168.1.12
-     nmap --script=oracle-sid-brute -p 1521-1560 192.168.1.12
+```console
+nmap --script=oracle-sid-brute --script-args=oraclesids=/path/to/sidfile -p 1521-1560 192.168.1.12
+```
+```console
+nmap --script=oracle-sid-brute -p 1521-1560 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |1521/tcp open  oracle  syn-ack
@@ -741,7 +843,9 @@ _Guesses Oracle instance/SID names against the TNS-listener_
 
 _Performs Brute-Force password auditing against the pcAnywhere remote access protocol_
      
-     nmap --script=pcanywhere-brute 192.168.1.12
+```console
+nmap --script=pcanywhere-brute 192.168.1.12
+```
 
      |5631/tcp open  pcanywheredata syn-ack
      | pcanywhere-brute:
@@ -757,7 +861,9 @@ _Performs Brute-Force password auditing against the pcAnywhere remote access pro
 
 _Performs password guessing against PostgreSQL_
      
-     nmap -p 5432 --script pgsql-brute 192.168.1.12
+```console
+nmap -p 5432 --script pgsql-brute 192.168.1.12
+```
 
      |5432/tcp open  pgsql
      | pgsql-brute:
@@ -771,7 +877,9 @@ _Performs password guessing against PostgreSQL_
 
 _Tries to log into a POP3 account by guessing usernames and passwords_
      
-     nmap -sV --script=pop3-brute 192.168.1.12
+```console
+nmap -sV --script=pop3-brute 192.168.1.12
+```
 
      |PORT    STATE SERVICE
      |110/tcp open  pop3
@@ -784,7 +892,9 @@ _Tries to log into a POP3 account by guessing usernames and passwords_
 ### Redis - Brute-Force                         
 _Performs Brute-Force passwords auditing against a Redis key-value store_
      
-     nmap -p 6379 192.168.1.12 --script redis-brute
+```console
+nmap -p 6379 192.168.1.12 --script redis-brute
+```
 
      |PORT     STATE SERVICE
      |6379/tcp open  unknown
@@ -798,7 +908,9 @@ _Performs Brute-Force passwords auditing against a Redis key-value store_
 
 _Performs Brute-Force password auditing against the classic UNIX rexec (remote exec) service_
      
-     nmap -p 512 --script rexec-brute 192.168.1.12
+```console
+nmap -p 512 --script rexec-brute 192.168.1.12
+```
 
      |PORT    STATE SERVICE
      |512/tcp open  exec
@@ -813,7 +925,9 @@ _Performs Brute-Force password auditing against the classic UNIX rexec (remote e
 
 _Performs Brute-Force password auditing against the classic UNIX rlogin (remote login) service_ This script must be run in privileged mode on UNIX because it must bind to a low source      |PORT number_
      
-     nmap -p 513 --script rlogin-brute 192.168.1.12
+```console
+nmap -p 513 --script rlogin-brute 192.168.1.12
+```
 
      |PORT    STATE SERVICE
      |513/tcp open  login
@@ -828,7 +942,9 @@ _Performs Brute-Force password auditing against the classic UNIX rlogin (remote 
 
 _Performs Brute-Force password auditing against the WinPcap Remote Capture Daemon (rpcap)_
      
-     nmap -p 2002 192.168.1.12 --script rpcap-brute
+```console
+nmap -p 2002 192.168.1.12 --script rpcap-brute
+```
 
      |PORT     STATE SERVICE REASON
      |2002/tcp open  globe   syn-ack
@@ -843,7 +959,9 @@ _Performs Brute-Force password auditing against the WinPcap Remote Capture Daemo
 
 _Performs Brute-Force password auditing against the rsync remote file syncing protocol_
      
-     nmap -p 873 --script rsync-brute --script-args 'rsync-brute.module=www' 192.168.1.12
+```console
+nmap -p 873 --script rsync-brute --script-args 'rsync-brute.module=www' 192.168.1.12
+```
 
      |PORT    STATE SERVICE REASON
      |873/tcp open  rsync   syn-ack
@@ -862,7 +980,9 @@ _Performs Brute-Force password auditing against the rsync remote file syncing pr
 
 _Attempts to enumerate RTSP media URLS by testing for common paths on devices such as surveillance IP cameras_
      
-     nmap --script rtsp-url-brute -p 554 192.168.1.12
+```console
+nmap --script rtsp-url-brute -p 554 192.168.1.12
+```
 
      |PORT    STATE SERVICE
      |554/tcp open  rtsp
@@ -881,7 +1001,9 @@ _Attempts to enumerate RTSP media URLS by testing for common paths on devices su
 ### SMB - Brute-Force                               
 _Attempts to guess username/password combinations over SMB, storing discovered combinations for use in other scripts_ Every attempt will be made to get a valid list of users and to verify each username before actually using them_ When a username is discovered, besides being printed, it is also saved in the Nmap registry so other Nmap scripts can use it_ That means that if you're going to run smb - Brute-Force_nse, you should run other smb scripts you want_ This checks passwords in a case-insensitive way, determining case after a password is found, for Windows versions before Vista_
      
-     nmap -sU -sS --script smb-brute.nse -p U:137,T:139 192.168.1.12
+```console
+nmap -sU -sS --script smb-brute.nse -p U:137,T:139 192.168.1.12
+```
 
      | smb-brute:
      |   bad name:test => Valid credentials
@@ -900,7 +1022,9 @@ _Attempts to guess username/password combinations over SMB, storing discovered c
 
 _Performs Brute-Force password auditing against SMTP servers using either LOGIN, PLAIN, CRAM-MD5, DIGEST-MD5 or NTLM authentication_
      
-     nmap -p 25 --script smtp-brute 192.168.1.12
+```console
+nmap -p 25 --script smtp-brute 192.168.1.12
+```
 
      |PORT    STATE SERVICE REASON
      |25/tcp  open  stmp    syn-ack
@@ -919,7 +1043,9 @@ _Performs Brute-Force password auditing against SMTP servers using either LOGIN,
 
 _Attempts to find an SNMP community string by Brute-Force guessing_
      
-     nmap --script socks-brute -p 1080 192.168.1.12
+```console
+nmap --script socks-brute -p 1080 192.168.1.12
+```
 
      |PORT     STATE SERVICE
      |1080/tcp open  socks
@@ -935,7 +1061,9 @@ _Attempts to find an SNMP community string by Brute-Force guessing_
 
 _Performs brute-force password guessing against ssh servers_
      
-     nmap -p 22 --script ssh-brute --script-args userdb=users.lst,passdb=pass.lst --script-args ssh-brute.timeout=4s 192.168.1.12
+```console
+nmap -p 22 --script ssh-brute --script-args userdb=users.lst,passdb=pass.lst --script-args ssh-brute.timeout=4s 192.168.1.12
+```
 
      |22/ssh open  ssh
      | ssh-brute:
@@ -948,7 +1076,9 @@ _Performs brute-force password guessing against ssh servers_
 
 _Performs Brute-Force password auditing against Subversion source code control servers_
      
-     nmap --script svn-brute --script-args svn-brute.repo=/svn/ -p 3690 192.168.1.12
+```console
+nmap --script svn-brute --script-args svn-brute.repo=/svn/ -p 3690 192.168.1.12
+```
 
      |PORT     STATE SERVICE REASON
      |3690/tcp open  svn     syn-ack
@@ -960,7 +1090,9 @@ _Performs Brute-Force password auditing against Subversion source code control s
 
 _Performs brute-force password auditing against telnet servers_
      
-     nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s 192.168.1.12
+```console
+nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s 192.168.1.12
+```
 
      |23/tcp open  telnet
      | telnet-brute:
@@ -976,7 +1108,9 @@ _Performs brute-force password auditing against telnet servers_
 
 _TSO User ID enumerator for IBM mainframes (z/OS)_ The TSO logon panel tells you when a user ID is valid or invalid with the message: IKJ56420I Userid <user ID> not authorized to use TSO_
      
-     nmap -sV -p 9923 10.32.70.10 --script tso-enum --script-args userdb=tso_users.txt,tso-enum.commands="logon applid(tso)"
+```console
+nmap -sV -p 9923 10.32.70.10 --script tso-enum --script-args userdb=tso_users.txt,tso-enum.commands="logon applid(tso)"
+```
 
      |PORT   STATE SERVICE VERSION
      |23/tcp open  tn3270  IBM Telnet TN3270
@@ -992,7 +1126,9 @@ _TSO User ID enumerator for IBM mainframes (z/OS)_ The TSO logon panel tells you
 
 _Performs Brute-Force password auditing against the VMWare Authentication Daemon (vmware-authd)_
      
-     nmap -p 902 192.168.1.12 --script vmauthd-brute
+```console
+nmap -p 902 192.168.1.12 --script vmauthd-brute
+```
 
      |PORT    STATE SERVICE
      |902/tcp open  iss-realsecure
@@ -1007,7 +1143,9 @@ _Performs Brute-Force password auditing against the VMWare Authentication Daemon
 
 _Performs Brute-Force password auditing against VNC servers_
      
-     nmap --script vnc-brute -p 5900 192.168.1.12
+```console
+nmap --script vnc-brute -p 5900 192.168.1.12
+```
 
      |PORT     STATE  SERVICE REASON
      |5900/tcp open   vnc     syn-ack
@@ -1021,7 +1159,9 @@ _Performs Brute-Force password auditing against VNC servers_
 
 _Many mainframes use VTAM screens to connect to various applications (CICS, IMS, TSO, and many more)_
      
-     nmap --script vtam-enum --script-args idlist=defaults.txt,vtam-enum.command="exit;logon applid(logos)",vtam-enum.macros=truevtam-enum.path="/home/dade/screenshots/" -p 23 -sV <targets>
+```console
+nmap --script vtam-enum --script-args idlist=defaults.txt,vtam-enum.command="exit;logon applid(logos)",vtam-enum.macros=truevtam-enum.path="/home/dade/screenshots/" -p 23 -sV <targets>
+```
 
      |PORT   STATE SERVICE VERSION
      |23/tcp open  tn3270  IBM Telnet TN3270
@@ -1038,7 +1178,9 @@ _Many mainframes use VTAM screens to connect to various applications (CICS, IMS,
 
 _Performs Brute-Force password auditing against XMPP (Jabber) instant messaging servers_
      
-     nmap -p 5222 --script xmpp-brute 192.168.1.12
+```console
+nmap -p 5222 --script xmpp-brute 192.168.1.12
+```
 
      |PORT     STATE SERVICE
      |5222/tcp open  xmpp-client
@@ -1065,5 +1207,10 @@ Visit my websites and profiles for the latest info and updated tools
 https://github.com/wuseman/ && https://nr1.nu && https://stackoverflow.com/users/9887151/wuseman
 
 #### END!
+
+
+
+
+
 
 
